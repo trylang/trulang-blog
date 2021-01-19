@@ -781,14 +781,14 @@ body span {
   opacity: 1;
 }
 .lazyload {
-  background: url("/images/theme/loading.gif") no-repeat center;
+  background: url("/images/theme/loading2.gif") no-repeat center;
 }
 .loading {
   position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
-  background: url("/images/theme/loading.gif") no-repeat center;
+  background: url("/trylang-blog/images/theme/loading1.gif") no-repeat center;
   background-color: var(--color-background);
   z-index: 2019;
   overflow: hidden;
@@ -1090,7 +1090,7 @@ body span {
   z-index: 40;
   height: 90vh;
   width: 100%;
-  background-image: url("/images/theme/welcome-image.jpg");
+  background-image: url("/trylang-blog/images/theme/welcome-image.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
