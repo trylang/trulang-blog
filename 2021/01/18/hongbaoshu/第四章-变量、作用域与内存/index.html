@@ -1,0 +1,531 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>红宝书笔记（一）：变量、作用域与内存 - Try-Lang</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="第四章 变量、作用域与内存
+重点掌握：
+
+变量使用的原...">
+  <meta name="author" content="Jane">
+  <link rel="icon" href="/trylang-blog/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/trylang-blog/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/trylang-blog/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/trylang-blog/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/trylang-blog/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/trylang-blog/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_s6x2xcokxrl.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading2.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210119143031.png',
+        wechat: ''
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '/trylang-blog/images/theme/welcome-image.jpg',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        model: 'simple'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+    </div>
+    <div class="center">红宝书笔记（一）：变量、作用域与内存</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+
+<nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/trylang-blog/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/trylang-blog/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/trylang-blog/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/trylang-blog/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/trylang-blog/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/trylang-blog/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="https://img.zg234.com/upload/69992/2020/10-13/20201013140739226487_small.jpg" src="/trylang-blog/images/theme/empty.jpg"  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">红宝书笔记（一）：变量、作用域与内存</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>January 18, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>6222</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h1 id="第四章-变量、作用域与内存"><a href="#第四章-变量、作用域与内存" class="headerlink" title="第四章 变量、作用域与内存"></a>第四章 变量、作用域与内存</h1><blockquote>
+<p>重点掌握：</p>
+<ol>
+<li>变量使用的原始值与引用值;</li>
+<li>理解执行上下文;</li>
+<li>理解垃圾回收；</li>
+</ol>
+</blockquote>
+<h2 id="4-1-原始值与引用值"><a href="#4-1-原始值与引用值" class="headerlink" title="4.1 原始值与引用值"></a>4.1 原始值与引用值</h2><p>原始值：</p>
+<ul>
+<li><p><strong>按值访问，</strong>操作的是实际值；</p>
+</li>
+<li><p> 6种原始值类型Undefined、 Null、 Boolean、 Number、 String 和 Symbol。</p>
+</li>
+</ul>
+<p>引用值：</p>
+<ul>
+<li><p>保存在内存的对象，j s不允许直接访问操作对象的内存空间；</p>
+</li>
+<li><p>访问的是对象的引用，不是实际对象本身；</p>
+</li>
+</ul>
+<h3 id="4-1-1-动态属性"><a href="#4-1-1-动态属性" class="headerlink" title="4.1.1 动态属性"></a>4.1.1 动态属性</h3><p>原始值不能有属性，添加也会报undefined；</p>
+<p>只有引用值可以动态添加属性；</p>
+<blockquote>
+<p>注意：如果使用new关键字，则js会创建一个Object类型的实例，但行为类似原始值。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> name1 = <span class="hljs-string">&quot;Nicholas&quot;</span>;<br><span class="hljs-keyword">let</span> name2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">String</span>(<span class="hljs-string">&quot;Matt&quot;</span>);<br>name1.age = <span class="hljs-number">27</span>;<br>name2.age = <span class="hljs-number">26</span>;<br><span class="hljs-built_in">console</span>.log(name1.age); <span class="hljs-comment">// undefined</span><br><span class="hljs-built_in">console</span>.log(name2.age); <span class="hljs-comment">// 26</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> name1); <span class="hljs-comment">// string</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> name2); <span class="hljs-comment">// object</span><br></code></pre></td></tr></table></figure>
+<h3 id="4-1-2-复制"><a href="#4-1-2-复制" class="headerlink" title="4.1.2 复制"></a>4.1.2 复制</h3><p>原始值：复制一个副本。完全独立，互不干扰。</p>
+<p>引用值：复制的是一个指针，指向存储在堆内存的对象。指向同一对象。</p>
+<h3 id="4-1-3-传递参数"><a href="#4-1-3-传递参数" class="headerlink" title="4.1.3 传递参数"></a>4.1.3 传递参数</h3><p>​        ECMAScript 中所有函数的参数都是按值传递的。这意味着函数外的值会被复制到函数内部的参数中，就像从一个变量复制到另一个变量一样。</p>
+<p>​        在按值传递参数时，值会被复制到一个局部变量（即一个命名参数，或者用 ECMAScript 的话说，就是 arguments 对象中的一个槽位）。在按引用传递参数时，值在内存中的位置会被保存在一个局部变量，这意味着对本地变量的修改会反映到函数外部。</p>
+<blockquote>
+<p><strong>证明引用类型也是按值传递</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setName</span>(<span class="hljs-params">obj</span>) </span>&#123;<br>obj.name = <span class="hljs-string">&quot;Nicholas&quot;</span>;<br>obj = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>(); <span class="hljs-comment">// +</span><br>obj.name = <span class="hljs-string">&quot;Greg&quot;</span>; <span class="hljs-comment">// +</span><br>&#125;<br><span class="hljs-keyword">let</span> person = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>();<br>setName(person);<br><span class="hljs-built_in">console</span>.log(person.name); <span class="hljs-comment">// &quot;Nicholas&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>​        这个例子前后唯一的变化就是 setName()中多了两行代码，将 obj 重新定义为一个有着不同 name的新对象。当 person 传入 setName()时，其 name 属性被设置为”Nicholas”。然后变量 obj 被设置为一个新对象且 name 属性被设置为”Greg”。</p>
+<p>​        如果 person 是按引用传递的，那么 person 应该自动将指针改为指向 name 为”Greg”的对象。可是，当我们再次访问 person.name 时， 它的值是”Nicholas”，这表明函数中参数的值改变之后，原始的引用仍然没变。当 obj 在函数内部被重写时，它变成了一个指向本地对象的指针。而那个本地对象在函数执行结束时就被销毁了。</p>
+</blockquote>
+<h3 id="4-1-4-确定类型"><a href="#4-1-4-确定类型" class="headerlink" title="4.1.4 确定类型"></a>4.1.4 确定类型</h3><p>确定类型： typeof判断原始值；instanceof判断引用值；</p>
+<hr>
+<h2 id="4-2-执行上下文与作用域"><a href="#4-2-执行上下文与作用域" class="headerlink" title="4.2 执行上下文与作用域"></a>4.2 执行上下文与作用域</h2><p>​        变量或函数的上下文决定了它们可以访问哪些数据，以及它们的行为。每个上下文都有一个关联的<strong>变量对象</strong>（ variable object），而这个上下文中定义的所有变量和函数都存在于这个对象上。虽然无法通过代码访问变量对象，但后台处理数据会用到它。</p>
+<pre><code>通过var定义的全局变量和函数都会成为window对象的属性和方法；
+
+使用let和const的顶级声明则不会挂载到window对象上；</code></pre>
+<p>​        函数上下文：（包括定义在上面的所有变量和函数）在其所有代码都执行完毕后会被销毁；</p>
+<p>​        全局上下文：在应用程序退出前才会被销毁，比如关闭网页或退出浏览器；</p>
+<h3 id="4-2-1-作用域增强《没有太懂》"><a href="#4-2-1-作用域增强《没有太懂》" class="headerlink" title="4.2.1 作用域增强《没有太懂》"></a>4.2.1 作用域增强《没有太懂》</h3><p>​        某些语句会导致在作用域链前端临时添加一个上下文，这个上下文在代码执行后会被删除。通常在两种情况下会出现这个现象，即代码执行到下面任意一种情况时：<br>​         try/catch 语句的 catch 块<br>​         with 语句<br>​        这两种情况下，都会在作用域链前端添加一个变量对象。对 with 语句来说，会向作用域链前端添加指定的对象；对 catch 语句而言，则会创建一个新的变量对象，这个变量对象会包含要抛出的错误对象的声明。</p>
+<h3 id="4-2-2-变量声明"><a href="#4-2-2-变量声明" class="headerlink" title="4.2.2 变量声明"></a>4.2.2 变量声明</h3><h4 id="1-使用var的函数作用域声明"><a href="#1-使用var的函数作用域声明" class="headerlink" title="1. 使用var的函数作用域声明"></a>1. 使用var的函数作用域声明</h4><ul>
+<li><p>变量会自动添加到最接近的上下文；</p>
+</li>
+<li><p>如若未经声明就被初始化，则自动添加到全局上下文，函数退出后变量依然存在，可访问；这种现象叫<strong>“提升”</strong>。</p>
+<blockquote>
+<p>初始化变量之前一定要先声明，严格模式下，会报错。</p>
+</blockquote>
+</li>
+<li><p>声明之前打印变量，提升意味着会输出undefined而不是Reference Error；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(name); <span class="hljs-comment">// undefined</span><br><span class="hljs-keyword">var</span> name = <span class="hljs-string">&#x27;Jake&#x27;</span>;<br><span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(name); <span class="hljs-comment">// undefined</span><br>  <span class="hljs-keyword">var</span> name = <span class="hljs-string">&#x27;Jake&#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="2-使用let的块级作用域声明"><a href="#2-使用let的块级作用域声明" class="headerlink" title="2. 使用let的块级作用域声明"></a>2. 使用let的<em>块级</em>作用域声明</h4></li>
+<li><p>块级作用域由最近的一堆包含花括号{}界定。换句话说， if 块、 while 块、 function 块，甚至连单独的块也是 let 声明变量的作用域。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 这不是对象字面量，而是一个独立的块</span><br><span class="hljs-comment">// JavaScript 解释器会根据其中内容识别出它来</span><br>&#123;<br><span class="hljs-keyword">let</span> d;<br>&#125;<br><span class="hljs-built_in">console</span>.log(d); <span class="hljs-comment">// ReferenceError: d 没有定义</span><br></code></pre></td></tr></table></figure></li>
+<li><p>let 与 var 的另一个不同之处是在同一作用域内不能声明两次。重复的 var 声明会被忽略，而重复的 let 声明会抛出 SyntaxError。</p>
+</li>
+<li><p>let 的行为非常适合在循环中声明迭代变量。使用 var 声明的迭代变量会泄漏到循环外部，</p>
+<blockquote>
+<p>这种情况应该避免。来看下面两个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; ++i) &#123;&#125;<br><span class="hljs-built_in">console</span>.log(i); <span class="hljs-comment">// 10</span><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">10</span>; ++j) &#123;&#125;<br><span class="hljs-built_in">console</span>.log(j); <span class="hljs-comment">// ReferenceError: j 没有定义</span><br></code></pre></td></tr></table></figure>
+
+<p>严格来讲， let 在 JavaScript 运行时中也会被提升，但由于“暂时性死区”（ temporal dead zone）的缘故，实际上不能在声明之前使用 let 变量。因此，从写 JavaScript 代码的角度说， let 的提升跟 var是不一样的。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="3-使用const的常量声明"><a href="#3-使用const的常量声明" class="headerlink" title="3. 使用const的常量声明"></a>3. 使用const的常量声明</h4><p>​        使用 const 声明的变量必须同时初始化为某个值。一经声明，在其生命周期的任何时候都不能再重新赋予新值。</p>
+<p>​        若为引用值，则对象的键不受限制。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> o1 = &#123;&#125;;<br>o1 = &#123;&#125;; <span class="hljs-comment">// TypeError: 给常量赋值</span><br><span class="hljs-keyword">const</span> o2 = &#123;&#125;;<br>o2.name = <span class="hljs-string">&#x27;Jake&#x27;</span>;<br><span class="hljs-built_in">console</span>.log(o2.name); <span class="hljs-comment">// &#x27;Jake&#x27;</span><br></code></pre></td></tr></table></figure>
+<p>​        如果想让整个对象都不能修改，可以使用 Object.freeze()，这样再给属性赋值时虽然不会报错，但会静默失败：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> o3 = <span class="hljs-built_in">Object</span>.freeze(&#123;&#125;);<br>o3.name = <span class="hljs-string">&#x27;Jake&#x27;</span>;<br><span class="hljs-built_in">console</span>.log(o3.name); <span class="hljs-comment">// undefined</span><br></code></pre></td></tr></table></figure>
+<p>由于 const 声明暗示变量的值是单一类型且不可修改， JavaScript 运行时编译器可以将其所有实例都替换成实际的值，而不会通过查询表进行变量查找。谷歌的 V8 引擎就执行这种优化。</p>
+<blockquote>
+<p>推荐：开发流中应尽可能地多使用const 声明，除非确实需要一个将来会重新赋值的变量。这样可以从根本上保证提前发现重新赋值导致的 bug。</p>
+<p>JavaScript 运行时编译器对于const声明，可以将其所有实例都替换成实际的值，而不会通过查询表进行变量查找。谷歌的 V8 引擎就执行这种优化。</p>
+</blockquote>
+<hr>
+<h2 id="4-3-垃圾回收"><a href="#4-3-垃圾回收" class="headerlink" title="4.3 垃圾回收"></a>4.3 垃圾回收</h2><p>​        JavaScript 通过自动内存管理实现内存分配和闲置资源回收。</p>
+<p>​        基本思路很简单：确定哪个变量不会再使用，然后释放它占用的内存。这个过程是周期性的，即垃圾回收程序<strong>每隔一定时间</strong>（或者说在代码执行过程中某个预定的收集时间）就会自动运行。因为无法判定哪块内存是否还在用，无法靠算法解决。</p>
+<h3 id="4-3-1-标记清理"><a href="#4-3-1-标记清理" class="headerlink" title="4.3.1 标记清理"></a>4.3.1 标记清理</h3><p>​        最常用的垃圾回收策略。比如：</p>
+<ul>
+<li>在函数内部声明一个变量，即变量进入函数上下文，变量会<strong>加上存在于上下文中的标记</strong>；</li>
+<li>在函数执行期间，不会释放内存；</li>
+<li>函数执行结束，即变量离开函数上下文，会<strong>加上离开上下文的标记</strong>；</li>
+<li>下次垃圾回收，会销毁带离开标记的所有值并收回内存。</li>
+</ul>
+<h3 id="4-3-2-引用计数"><a href="#4-3-2-引用计数" class="headerlink" title="4.3.2 引用计数"></a>4.3.2 引用计数</h3><p>​        不常用的垃圾回收策略。思路是：记录引用次数。</p>
+<ul>
+<li>声明变量并赋一个引用值时，值的引用数为1；</li>
+<li>如该同一值变量赋值给另一个变量，引用数+1；</li>
+<li>如该同一值变量被其他值覆盖，引用数-1；</li>
+<li>当引用数为0时，说明没办法再访问这个值，可安全收回内存；</li>
+<li>垃圾回收程序下次运行时释放引用数为0的内存。</li>
+</ul>
+<blockquote>
+<p><strong>严重问题：循环引用</strong>，在标记清除策略下可清除；但在引用计数策略下，由于引用数无法为0，导致无法清除。</p>
+<p>解决办法：将变量手动设置成null，切断循环引用的关系。</p>
+<p>例子：DOM对象（element）与原生JS对象（myObject）之间的循环引用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> element = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;some_element&quot;</span>); <span class="hljs-comment">// 1</span><br><span class="hljs-keyword">let</span> myObject = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>(); <span class="hljs-comment">// 1</span><br>myObject.element = element; <span class="hljs-comment">// element 同一个值被赋给另一个值myObject.element，element引用数+1</span><br>element.someObject = myObject; <span class="hljs-comment">// myObject 同一个值被赋给另一个值element.someObject，myObject引用数+1</span><br><br><span class="hljs-comment">// 切断联系</span><br>myObject.element = <span class="hljs-literal">null</span>; <span class="hljs-comment">// myObject被其他值覆盖，myObject引用数-1</span><br>element.someObject = <span class="hljs-literal">null</span>; <span class="hljs-comment">// element被其他值覆盖，element引用数-1</span><br></code></pre></td></tr></table></figure>
+<p>举例：</p>
+<p><strong>两个引用</strong></p>
+<p>现在让我们假设我们将引用从 <code>user</code> 复制到 <code>admin</code>:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// user具有对象的引用</span><br><span class="hljs-keyword">let</span> user = &#123;<br>name: <span class="hljs-string">&quot;John&quot;</span><br>&#125;;<br><br><span class="hljs-keyword">let</span> admin = user;<br></code></pre></td></tr></table></figure>
+
+<p><img    class="lazyload" data-original="https://segmentfault.com/img/bVbqcVf" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">图片描述</span></p>
+<p>现在如果我们做同样的事情:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">user = <span class="hljs-literal">null</span>;<br></code></pre></td></tr></table></figure>
+
+<p>该对象仍然可以通过 <code>admin</code> 全局变量访问，所以它在内存中。如果我们也覆盖<code>admin</code>，那么它可以被释放。</p>
+</blockquote>
+<h4 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h4><ol>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018605776">前端面试：谈谈 JS 垃圾回收机制</a></li>
+</ol>
+<h3 id="4-3-3-性能"><a href="#4-3-3-性能" class="headerlink" title="4.3.3 性能"></a>4.3.3 性能</h3><p>​        如果内存中分配了很多变量，则可能造成性能损失，因此垃圾回收的时间调度很重要。</p>
+<p>​        V8做法：在一次完整的垃圾回收之后，V8的堆增长策略会根据活跃对象的数量、外加一些余量来确定何时再次垃圾回收。</p>
+<h3 id="4-3-4-内存管理"><a href="#4-3-4-内存管理" class="headerlink" title="4.3.4 内存管理"></a>4.3.4 内存管理</h3><p>​        将内存占用量保持在一个较小的值可以让页面性能更好。</p>
+<ul>
+<li>全局变量或全局对象的属性：不需要时设置为null，<strong>解除引用</strong>；</li>
+<li>局部变量在超出作用域后会自动解除引用。</li>
+</ul>
+<p>优化方式：</p>
+<ol>
+<li><p>通过const和let声明提升性能</p>
+<ol>
+<li>ES6增加这俩字段有助于垃圾回收；因为const和let都以块（不是函数）为作用域，比var更早进入回收。</li>
+</ol>
+</li>
+<li><p>隐藏类和删除操作</p>
+<ol>
+<li>不同实例会共享同一个构造函数和原型，有助于性能优化；</li>
+<li>新增和删除，这种动态属性赋值，会破坏隐藏类；</li>
+<li>新增：尽量在构造函数中一次性声明所有属性，避免“先创建再补充”；</li>
+<li>删除：将不想要的属性设置为null，少使用delete 直接删除；</li>
+</ol>
+</li>
+<li><p>内存泄漏</p>
+<ol>
+<li><p>声明全局变量，会导致内存泄漏；</p>
+</li>
+<li><p>定时器：回调函数通过闭包引用外部变量；</p>
+</li>
+<li><p>闭包；</p>
+</li>
+<li><p>静态分配与对象池：</p>
+<ol>
+<li>多使用一个对象去管理属性，不会频繁触发垃圾回收探测；</li>
+<li>多使用已有的对象，比如将以后对象传参至函数，而不是新创建；</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 定时器：</span><br><span class="hljs-keyword">let</span> name = <span class="hljs-string">&#x27;Jake&#x27;</span>;<br><span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> &#123;<br><span class="hljs-built_in">console</span>.log(name);<br>&#125;, <span class="hljs-number">100</span>);<br><span class="hljs-comment">// 只要定时器一直运行，回调函数中引用的 name 就会一直占用内存。垃圾回收程序当然知道这一点，因而就不会清理外部变量。</span><br><br><span class="hljs-comment">// 闭包：</span><br><span class="hljs-keyword">let</span> outer = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">let</span> name = <span class="hljs-string">&#x27;Jake&#x27;</span>;<br>  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> name;<br>  &#125;;<br>&#125;;<br><span class="hljs-comment">// 调用 outer()会导致分配给 name 的内存被泄漏。以上代码执行后创建了一个内部闭包，只要返回的函数存在就不能清理 name，因为闭包一直在引用着它。假如 name 的内容很大（不止是一个小字符串），那可能就是个大问题了。</span><br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 id="4-4-小结"><a href="#4-4-小结" class="headerlink" title="4.4 小结"></a>4.4 小结</h2><ol>
+<li><p>变量保存两类值：原始值和引用值；</p>
+</li>
+<li><p>原始值大小固定，保存在栈内存；</p>
+</li>
+<li><p>引用值是对象，保存在堆内存；</p>
+</li>
+<li><p>执行上下文分全局上下文、函数上下文和块级上下文；</p>
+</li>
+<li><p>JavaScript 是使用垃圾回收的编程语言，开发者不需要操心内存分配和回收。 JavaScript 的垃圾回收程序可以总结如下。<br> 离开作用域的值会被自动标记为可回收，然后在垃圾回收期间被删除。<br> 主流的垃圾回收算法是标记清理，即先给当前不使用的值加上标记，再回来回收它们的内存。<br> 引用计数是另一种垃圾回收策略，需要记录值被引用了多少次。 JavaScript 引擎不再使用这种算法，但某些旧版本的 IE 仍然会受这种算法的影响，原因是 JavaScript 会访问非原生 JavaScript 对象（如 DOM 元素）</p>
+</li>
+</ol>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Jane</li>
+    <li><strong>本文链接：</strong><a href="http://trylang.github.io/trylang-blog/2021/01/18/hongbaoshu/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98/index.html" title="http:&#x2F;&#x2F;trylang.github.io&#x2F;trylang-blog&#x2F;2021&#x2F;01&#x2F;18&#x2F;hongbaoshu&#x2F;%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98&#x2F;index.html">http:&#x2F;&#x2F;trylang.github.io&#x2F;trylang-blog&#x2F;2021&#x2F;01&#x2F;18&#x2F;hongbaoshu&#x2F;%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210119143031.png" src="/trylang-blog/images/theme/empty.jpg" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/trylang-blog/tags/%E5%89%8D%E7%AB%AFJS/" rel="tag">前端JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/trylang-blog/tags/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/" rel="tag">前端基础</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/trylang-blog/2021/01/18/galleries-1/"><i class="iconfont iconleft"></i>try1</a>
+    <a href="/trylang-blog/2021/01/18/hello-world/">Hello World<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98"><span class="toc-text">第四章 变量、作用域与内存</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E5%8E%9F%E5%A7%8B%E5%80%BC%E4%B8%8E%E5%BC%95%E7%94%A8%E5%80%BC"><span class="toc-text">4.1 原始值与引用值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-1-%E5%8A%A8%E6%80%81%E5%B1%9E%E6%80%A7"><span class="toc-text">4.1.1 动态属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-2-%E5%A4%8D%E5%88%B6"><span class="toc-text">4.1.2 复制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-3-%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0"><span class="toc-text">4.1.3 传递参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-4-%E7%A1%AE%E5%AE%9A%E7%B1%BB%E5%9E%8B"><span class="toc-text">4.1.4 确定类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E4%B8%8E%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">4.2 执行上下文与作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%A2%9E%E5%BC%BA%E3%80%8A%E6%B2%A1%E6%9C%89%E5%A4%AA%E6%87%82%E3%80%8B"><span class="toc-text">4.2.1 作用域增强《没有太懂》</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="toc-text">4.2.2 变量声明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="toc-text">4.3 垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-1-%E6%A0%87%E8%AE%B0%E6%B8%85%E7%90%86"><span class="toc-text">4.3.1 标记清理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-2-%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0"><span class="toc-text">4.3.2 引用计数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-3-%E6%80%A7%E8%83%BD"><span class="toc-text">4.3.3 性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-4-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-text">4.3.4 内存管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E5%B0%8F%E7%BB%93"><span class="toc-text">4.4 小结</span></a></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=1594622915 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://github.com/trylang/trylang-blog "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:trylangyp@gmail.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    <div class="scrollbar j-scrollbar">
+  <div class="scrollbar-current j-scrollbar-current"></div>
+</div>
+  
+  
+    
+<script src="/trylang-blog/js/color-mode.js"></script>
+
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/trylang-blog/js/utils.js"></script>
+<script src="/trylang-blog/js/script.js"></script>
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
