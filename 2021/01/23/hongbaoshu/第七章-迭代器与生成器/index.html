@@ -6,12 +6,15 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>My Gallery - Try-Lang</title>
+  <title>红宝书笔记（四）：迭代器与生成器 - Try-Lang</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
   
-  <meta name="description" content="我要开始写专题啦">
+  <meta name="description" content="第七章 迭代器与生成器
+重点掌握：
+
+变量使用的原始值...">
   <meta name="author" content="Jane">
   <link rel="icon" href="/trylang-blog/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="icon" href="/trylang-blog/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -135,7 +138,7 @@
         <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
       
     </div>
-    <div class="center">My Gallery</div>
+    <div class="center">红宝书笔记（四）：迭代器与生成器</div>
     <div class="right">
       <i class="iconfont iconmenu j-navbar-menu"></i>
     </div>
@@ -176,26 +179,34 @@
       <div class="col-xl-6"><article class="article">
   <div class="wrap">
     <section class="head">
-  <img   class="lazyload" data-original="https://ixibanyayu.com/wp-content/uploads/2018/08/meiguomeiren-fanti.jpg" src="/trylang-blog/images/theme/empty.jpg"  draggable="false">
+  <img   class="lazyload" data-original="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE9UfX0HE2rpWAl3vlf2eC2TaN2izBPTri5g&usqp=CAU" src="/trylang-blog/images/theme/empty.jpg"  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title">My Gallery</h1>
+    <h1 class="head-title">红宝书笔记（四）：迭代器与生成器</h1>
     <div class="head-info">
-      <span class="post-info-item"><i class="iconfont iconcalendar"></i>January 18, 2021</span>
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>January 23, 2021</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>8</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>52</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <h1 id="我要开始写专题啦"><a href="#我要开始写专题啦" class="headerlink" title="我要开始写专题啦"></a>我要开始写专题啦</h1>
+        <h1 id="第七章-迭代器与生成器"><a href="#第七章-迭代器与生成器" class="headerlink" title="第七章 迭代器与生成器"></a>第七章 迭代器与生成器</h1><blockquote>
+<p>重点掌握：</p>
+<ol>
+<li>变量使用的原始值与引用值;</li>
+<li>理解执行上下文;</li>
+<li>理解垃圾回收；</li>
+</ol>
+</blockquote>
+
       </section>
       <section class="extra">
         
           <ul class="copyright">
   
     <li><strong>本文作者：</strong>Jane</li>
-    <li><strong>本文链接：</strong><a href="http://trylang.github.io/trylang-blog/2021/01/18/My-Gallery/index.html" title="http:&#x2F;&#x2F;trylang.github.io&#x2F;trylang-blog&#x2F;2021&#x2F;01&#x2F;18&#x2F;My-Gallery&#x2F;index.html">http:&#x2F;&#x2F;trylang.github.io&#x2F;trylang-blog&#x2F;2021&#x2F;01&#x2F;18&#x2F;My-Gallery&#x2F;index.html</a></li>
+    <li><strong>本文链接：</strong><a href="http://trylang.github.io/trylang-blog/2021/01/23/hongbaoshu/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8/index.html" title="http:&#x2F;&#x2F;trylang.github.io&#x2F;trylang-blog&#x2F;2021&#x2F;01&#x2F;23&#x2F;hongbaoshu&#x2F;%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8&#x2F;index.html">http:&#x2F;&#x2F;trylang.github.io&#x2F;trylang-blog&#x2F;2021&#x2F;01&#x2F;23&#x2F;hongbaoshu&#x2F;%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8&#x2F;index.html</a></li>
     <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
   
 </ul>
@@ -212,12 +223,12 @@
 </section>
         
         
-  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/trylang-blog/tags/%E5%89%8D%E7%AB%AFJS/" rel="tag">前端JS</a></li></ul> 
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/trylang-blog/tags/%E5%89%8D%E7%AB%AFJS/" rel="tag">前端JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/trylang-blog/tags/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/" rel="tag">前端基础</a></li></ul> 
 
         
   <nav class="nav">
-    <a href="/trylang-blog/2021/01/18/My-Gallery-1/"><i class="iconfont iconleft"></i>My Gallery</a>
-    <a href="/trylang-blog/2021/01/18/hongbaoshu/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98/">红宝书笔记（一）：变量、作用域与内存<i class="iconfont iconright"></i></a>
+    <a></a>
+    <a href="/trylang-blog/2021/01/22/hongbaoshu/%E7%AC%AC%E5%85%AD%E7%AB%A0-%E9%9B%86%E5%90%88%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/">红宝书笔记（三）：集合引用类型<i class="iconfont iconright"></i></a>
   </nav>
 
       </section>
@@ -230,7 +241,7 @@
           
   <aside class="toc-wrap">
     <h3 class="toc-title">文章目录：</h3>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E8%A6%81%E5%BC%80%E5%A7%8B%E5%86%99%E4%B8%93%E9%A2%98%E5%95%A6"><span class="toc-text">我要开始写专题啦</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-text">第七章 迭代器与生成器</span></a></li></ol>
   </aside>
 
         
