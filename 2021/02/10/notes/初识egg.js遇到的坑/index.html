@@ -6,15 +6,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>红宝书笔记（四）：迭代器与生成器 - Try-Lang</title>
+  <title>初识egg.js遇到的坑 - Try-Lang</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
   
-  <meta name="description" content="第七章 迭代器与生成器
-重点掌握：
-
-变量使用的原始值...">
+  <meta name="description" content="初识egg.js遇到的坑1. Failed to co...">
   <meta name="author" content="Jane">
   <link rel="icon" href="/trylang-blog/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="icon" href="/trylang-blog/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -138,7 +135,7 @@
         <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
       
     </div>
-    <div class="center">红宝书笔记（四）：迭代器与生成器</div>
+    <div class="center">初识egg.js遇到的坑</div>
     <div class="right">
       <i class="iconfont iconmenu j-navbar-menu"></i>
     </div>
@@ -179,37 +176,38 @@
       <div class="col-xl-6"><article class="article">
   <div class="wrap">
     <section class="head">
-  <img   class="lazyload" data-original="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE9UfX0HE2rpWAl3vlf2eC2TaN2izBPTri5g&usqp=CAU" src="/trylang-blog/images/theme/empty.jpg"  draggable="false">
+  <img   class="lazyload" data-original="https://ixibanyayu.com/wp-content/uploads/2018/08/dedaocngweidedao.jpg" src="/trylang-blog/images/theme/empty.jpg"  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title">红宝书笔记（四）：迭代器与生成器</h1>
+    <h1 class="head-title">初识egg.js遇到的坑</h1>
     <div class="head-info">
-      <span class="post-info-item"><i class="iconfont iconcalendar"></i>January 23, 2021</span>
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>February 10, 2021</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>189</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1034</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <h1 id="第七章-迭代器与生成器"><a href="#第七章-迭代器与生成器" class="headerlink" title="第七章 迭代器与生成器"></a>第七章 迭代器与生成器</h1><blockquote>
-<p>重点掌握：</p>
-<ol>
-<li>变量使用的原始值与引用值;</li>
-<li>理解执行上下文;</li>
-<li>理解垃圾回收；</li>
-</ol>
+        <h1 id="初识egg-js遇到的坑"><a href="#初识egg-js遇到的坑" class="headerlink" title="初识egg.js遇到的坑"></a>初识egg.js遇到的坑</h1><h2 id="1-Failed-to-connect-to-localhost-port-8080-Connection-refused"><a href="#1-Failed-to-connect-to-localhost-port-8080-Connection-refused" class="headerlink" title="1. Failed to connect to localhost port 8080: Connection refused"></a>1. Failed to connect to localhost port 8080: Connection refused</h2><p>使用命令<code>curl http://localhost:7001</code> 会报Connection refused。</p>
+<p>这时使用 <code>curl http://127.0.0.1:7001</code>，就没有问题了。</p>
+<blockquote>
+<p>资料参考：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/duhuo/p/5695256.html">Linux curl命令详解</a></p>
 </blockquote>
-<h2 id="7-1-理解迭代"><a href="#7-1-理解迭代" class="headerlink" title="7.1 理解迭代"></a>7.1 理解迭代</h2><hr>
-<h2 id="7-2-迭代器模式"><a href="#7-2-迭代器模式" class="headerlink" title="7.2 迭代器模式"></a>7.2 迭代器模式</h2><h3 id="7-2-1-可迭代协议"><a href="#7-2-1-可迭代协议" class="headerlink" title="7.2.1 可迭代协议"></a>7.2.1 可迭代协议</h3><h3 id="7-2-2-迭代器协议"><a href="#7-2-2-迭代器协议" class="headerlink" title="7.2.2 迭代器协议"></a>7.2.2 迭代器协议</h3><h3 id="7-2-3-自定义迭代器"><a href="#7-2-3-自定义迭代器" class="headerlink" title="7.2.3 自定义迭代器"></a>7.2.3 自定义迭代器</h3><h3 id="7-2-4-提前终止迭代器"><a href="#7-2-4-提前终止迭代器" class="headerlink" title="7.2.4 提前终止迭代器"></a>7.2.4 提前终止迭代器</h3><hr>
-<h2 id="7-3-生成器"><a href="#7-3-生成器" class="headerlink" title="7.3 生成器"></a>7.3 生成器</h2><h3 id="7-3-1-生成器基础"><a href="#7-3-1-生成器基础" class="headerlink" title="7.3.1 生成器基础"></a>7.3.1 生成器基础</h3><h3 id="7-3-2-通过yield中断执行"><a href="#7-3-2-通过yield中断执行" class="headerlink" title="7.3.2 通过yield中断执行"></a>7.3.2 通过yield中断执行</h3><h3 id="7-3-3-生成器作为默认迭代器"><a href="#7-3-3-生成器作为默认迭代器" class="headerlink" title="7.3.3 生成器作为默认迭代器"></a>7.3.3 生成器作为默认迭代器</h3><h3 id="7-3-4-提前终止迭代器"><a href="#7-3-4-提前终止迭代器" class="headerlink" title="7.3.4 提前终止迭代器"></a>7.3.4 提前终止迭代器</h3><hr>
-<h2 id="7-4-小结"><a href="#7-4-小结" class="headerlink" title="7.4 小结"></a>7.4 小结</h2>
+<h2 id="2-Connect-timeout-for-5000ms-GET-https-hacker-news-firebaseio-com-v0-topstories-json-2"><a href="#2-Connect-timeout-for-5000ms-GET-https-hacker-news-firebaseio-com-v0-topstories-json-2" class="headerlink" title="2.  Connect timeout for 5000ms, GET https://hacker-news.firebaseio.com/v0/topstories.json -2"></a>2.  Connect timeout for 5000ms, GET <a target="_blank" rel="noopener" href="https://hacker-news.firebaseio.com/v0/topstories.json">https://hacker-news.firebaseio.com/v0/topstories.json</a> -2</h2><p>Egg.js例子里有些链接，浏览器是可以打开的，但是直接在egg.js中使用<code>await this.ctx.curl(url,&#123;&#125;)</code>时会报超时。</p>
+<p>自己没有找到特别好的办法，只是换了一个都能访问的请求数据地址，替换成这个地址就不报超时的错误了。</p>
+<h2 id="3-报错“nodejs-RequestError-getaddrinfo-ENOTFOUND”，或者“agent-status-“createSocketCount”-1-”createSocketErrorCount”-0-”closeSocketCount”-1-”errorSocketCount”-0-”timeoutSocketCount”-0-”requestCount”-0-”freeSockets”-”sockets”-”requests”-socketHandledRequests-1-socketHandledResponses-0-”"><a href="#3-报错“nodejs-RequestError-getaddrinfo-ENOTFOUND”，或者“agent-status-“createSocketCount”-1-”createSocketErrorCount”-0-”closeSocketCount”-1-”errorSocketCount”-0-”timeoutSocketCount”-0-”requestCount”-0-”freeSockets”-”sockets”-”requests”-socketHandledRequests-1-socketHandledResponses-0-”" class="headerlink" title="3. 报错“nodejs.RequestError: getaddrinfo ENOTFOUND”，或者“agent status: {“createSocketCount”:1,”createSocketErrorCount”:0,”closeSocketCount”:1,”errorSocketCount”:0,”timeoutSocketCount”:0,”requestCount”:0,”freeSockets”:{},”sockets”:{},”requests”:{}}, socketHandledRequests: 1, socketHandledResponses: 0)”"></a>3. 报错“nodejs.RequestError: getaddrinfo ENOTFOUND”，或者“agent status: {“createSocketCount”:1,”createSocketErrorCount”:0,”closeSocketCount”:1,”errorSocketCount”:0,”timeoutSocketCount”:0,”requestCount”:0,”freeSockets”:{},”sockets”:{},”requests”:{}}, socketHandledRequests: 1, socketHandledResponses: 0)”</h2><p>这时要检查下代码是否有问题，我当时就是把配置文档写错了。</p>
+<p>当时按照egg.js文档中，是这样写的，结果会报上述错误。<img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210210104400.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210210104350165</span></p>
+<p>在config/plugin.js 文件中，应该要如此引入模版，不会报错。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">module</span>.exports = &#123;<br>  nunjucks: &#123;<br>    enable: <span class="hljs-literal">true</span>,<br>    package: <span class="hljs-string">&#x27;egg-view-nunjucks&#x27;</span>,<br>  &#125;,<br>  <span class="hljs-comment">// had enabled by egg</span><br>  <span class="hljs-comment">// static: &#123;</span><br>  <span class="hljs-comment">//   enable: true,</span><br>  <span class="hljs-comment">// &#125;</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+
       </section>
       <section class="extra">
         
           <ul class="copyright">
   
     <li><strong>本文作者：</strong>Jane</li>
-    <li><strong>本文链接：</strong><a href="http://trylang.github.io/trylang-blog/2021/01/23/hongbaoshu/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8/index.html" title="http:&#x2F;&#x2F;trylang.github.io&#x2F;trylang-blog&#x2F;2021&#x2F;01&#x2F;23&#x2F;hongbaoshu&#x2F;%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8&#x2F;index.html">http:&#x2F;&#x2F;trylang.github.io&#x2F;trylang-blog&#x2F;2021&#x2F;01&#x2F;23&#x2F;hongbaoshu&#x2F;%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8&#x2F;index.html</a></li>
+    <li><strong>本文链接：</strong><a href="http://trylang.github.io/trylang-blog/2021/02/10/notes/%E5%88%9D%E8%AF%86egg.js%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/index.html" title="http:&#x2F;&#x2F;trylang.github.io&#x2F;trylang-blog&#x2F;2021&#x2F;02&#x2F;10&#x2F;notes&#x2F;%E5%88%9D%E8%AF%86egg.js%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91&#x2F;index.html">http:&#x2F;&#x2F;trylang.github.io&#x2F;trylang-blog&#x2F;2021&#x2F;02&#x2F;10&#x2F;notes&#x2F;%E5%88%9D%E8%AF%86egg.js%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91&#x2F;index.html</a></li>
     <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
   
 </ul>
@@ -226,12 +224,12 @@
 </section>
         
         
-  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/trylang-blog/tags/%E5%89%8D%E7%AB%AFJS/" rel="tag">前端JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/trylang-blog/tags/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/" rel="tag">前端基础</a></li></ul> 
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/trylang-blog/tags/egg-js/" rel="tag">egg.js</a></li></ul> 
 
         
   <nav class="nav">
-    <a href="/trylang-blog/2021/02/05/front/TypeScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="iconfont iconleft"></i>TypeScript：学习笔记</a>
-    <a href="/trylang-blog/2021/01/22/hongbaoshu/%E7%AC%AC%E5%85%AD%E7%AB%A0-%E9%9B%86%E5%90%88%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/">红宝书笔记（三）：集合引用类型<i class="iconfont iconright"></i></a>
+    <a></a>
+    <a href="/trylang-blog/2021/02/05/front/TypeScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">TypeScript：学习笔记<i class="iconfont iconright"></i></a>
   </nav>
 
       </section>
@@ -244,7 +242,7 @@
           
   <aside class="toc-wrap">
     <h3 class="toc-title">文章目录：</h3>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-text">第七章 迭代器与生成器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E7%90%86%E8%A7%A3%E8%BF%AD%E4%BB%A3"><span class="toc-text">7.1 理解迭代</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F"><span class="toc-text">7.2 迭代器模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-1-%E5%8F%AF%E8%BF%AD%E4%BB%A3%E5%8D%8F%E8%AE%AE"><span class="toc-text">7.2.1 可迭代协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-2-%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%8D%8F%E8%AE%AE"><span class="toc-text">7.2.2 迭代器协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-3-%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-text">7.2.3 自定义迭代器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-4-%E6%8F%90%E5%89%8D%E7%BB%88%E6%AD%A2%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-text">7.2.4 提前终止迭代器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-text">7.3 生成器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-1-%E7%94%9F%E6%88%90%E5%99%A8%E5%9F%BA%E7%A1%80"><span class="toc-text">7.3.1 生成器基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-2-%E9%80%9A%E8%BF%87yield%E4%B8%AD%E6%96%AD%E6%89%A7%E8%A1%8C"><span class="toc-text">7.3.2 通过yield中断执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-3-%E7%94%9F%E6%88%90%E5%99%A8%E4%BD%9C%E4%B8%BA%E9%BB%98%E8%AE%A4%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-text">7.3.3 生成器作为默认迭代器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-4-%E6%8F%90%E5%89%8D%E7%BB%88%E6%AD%A2%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-text">7.3.4 提前终止迭代器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-4-%E5%B0%8F%E7%BB%93"><span class="toc-text">7.4 小结</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9D%E8%AF%86egg-js%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91"><span class="toc-text">初识egg.js遇到的坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Failed-to-connect-to-localhost-port-8080-Connection-refused"><span class="toc-text">1. Failed to connect to localhost port 8080: Connection refused</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Connect-timeout-for-5000ms-GET-https-hacker-news-firebaseio-com-v0-topstories-json-2"><span class="toc-text">2.  Connect timeout for 5000ms, GET https:&#x2F;&#x2F;hacker-news.firebaseio.com&#x2F;v0&#x2F;topstories.json -2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%8A%A5%E9%94%99%E2%80%9Cnodejs-RequestError-getaddrinfo-ENOTFOUND%E2%80%9D%EF%BC%8C%E6%88%96%E8%80%85%E2%80%9Cagent-status-%E2%80%9CcreateSocketCount%E2%80%9D-1-%E2%80%9DcreateSocketErrorCount%E2%80%9D-0-%E2%80%9DcloseSocketCount%E2%80%9D-1-%E2%80%9DerrorSocketCount%E2%80%9D-0-%E2%80%9DtimeoutSocketCount%E2%80%9D-0-%E2%80%9DrequestCount%E2%80%9D-0-%E2%80%9DfreeSockets%E2%80%9D-%E2%80%9Dsockets%E2%80%9D-%E2%80%9Drequests%E2%80%9D-socketHandledRequests-1-socketHandledResponses-0-%E2%80%9D"><span class="toc-text">3. 报错“nodejs.RequestError: getaddrinfo ENOTFOUND”，或者“agent status: {“createSocketCount”:1,”createSocketErrorCount”:0,”closeSocketCount”:1,”errorSocketCount”:0,”timeoutSocketCount”:0,”requestCount”:0,”freeSockets”:{},”sockets”:{},”requests”:{}}, socketHandledRequests: 1, socketHandledResponses: 0)”</span></a></li></ol></li></ol>
   </aside>
 
         

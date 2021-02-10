@@ -14,7 +14,7 @@
   <meta name="description" content="TypeScript学习笔记
 重点掌握：
 
-变量使用的...">
+接口定义i...">
   <meta name="author" content="Jane">
   <link rel="icon" href="/trylang-blog/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="icon" href="/trylang-blog/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -179,13 +179,13 @@
       <div class="col-xl-6"><article class="article">
   <div class="wrap">
     <section class="head">
-  <img   class="lazyload" data-original="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201706%2F01%2F20170601212540_KYNSB.thumb.700_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1613634180&t=1eca9ff557990ac0b29966478ec4ec5d" src="/trylang-blog/images/theme/empty.jpg"  draggable="false">
+  <img   class="lazyload" data-original="http://img.mm4000.com/file/8/19/0488accd6a_1044.jpg" src="/trylang-blog/images/theme/empty.jpg"  draggable="false">
   <div class="head-mask">
     <h1 class="head-title">TypeScript：学习笔记</h1>
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>February 05, 2021</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>751</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>3255</span>
     </div>
   </div>
 </section>
@@ -194,22 +194,99 @@
         <h1 id="TypeScript学习笔记"><a href="#TypeScript学习笔记" class="headerlink" title="TypeScript学习笔记"></a>TypeScript学习笔记</h1><blockquote>
 <p>重点掌握：</p>
 <ol>
-<li>变量使用的原始值与引用值;</li>
-<li>理解执行上下文;</li>
-<li>理解垃圾回收；</li>
+<li>接口定义interface 与类型别名type的区别；</li>
+</ol>
+<p>相关链接：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6860263805625204743">亲手码出TypeScript最前沿的教程（基础篇）</a></li>
+<li></li>
 </ol>
 </blockquote>
 <h2 id="一、定义"><a href="#一、定义" class="headerlink" title="一、定义"></a>一、定义</h2><p>TypeScript是JavaScript的超集。</p>
 <h2 id="二、优势"><a href="#二、优势" class="headerlink" title="二、优势"></a>二、优势</h2><h3 id="3-代码语义更清晰易懂；"><a href="#3-代码语义更清晰易懂；" class="headerlink" title="3. 代码语义更清晰易懂；"></a>3. 代码语义更清晰易懂；</h3><h2 id="三、类型"><a href="#三、类型" class="headerlink" title="三、类型"></a>三、类型</h2><h3 id="1-基础定义"><a href="#1-基础定义" class="headerlink" title="1. 基础定义"></a>1. 基础定义</h3><p>![image-20210205092025726](/Users/jane/Library/Application Support/typora-user-images/image-20210205092025726.png)</p>
 <p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210205092339.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210205092328935</span></p>
-<h3 id="2-解构赋值的注解"><a href="#2-解构赋值的注解" class="headerlink" title="2. 解构赋值的注解"></a>2. 解构赋值的注解</h3><p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210205093300.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210205093258540</span></p>
-<h3 id="3-函数定义时有两种方法约束参数和返回值类型："><a href="#3-函数定义时有两种方法约束参数和返回值类型：" class="headerlink" title="3. 函数定义时有两种方法约束参数和返回值类型："></a>3. 函数定义时有两种方法约束参数和返回值类型：</h3><p>第一种是约束参数和返回值；这种写法返回值类型number可省略不写，编辑器可直接推断出类型；</p>
+<h3 id="3-如果写一行，可默认类型，但如果分行写，则需要进行类型声明。"><a href="#3-如果写一行，可默认类型，但如果分行写，则需要进行类型声明。" class="headerlink" title="3. 如果写一行，可默认类型，但如果分行写，则需要进行类型声明。 "></a>3. 如果写一行，可默认类型，但如果分行写，则需要进行类型声明。 <img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210207090447.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210207090445347</span></h3><h3 id="2-解构赋值的注解"><a href="#2-解构赋值的注解" class="headerlink" title="2. 解构赋值的注解"></a>2. 解构赋值的注解</h3><p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210205093300.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210205093258540</span></p>
+<h3 id="3-函数相关类型"><a href="#3-函数相关类型" class="headerlink" title="3. 函数相关类型"></a>3. 函数相关类型</h3><h4 id="1-函数参数为对象的基本方式"><a href="#1-函数参数为对象的基本方式" class="headerlink" title="1. 函数参数为对象的基本方式"></a>1. 函数参数为对象的基本方式</h4><p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210207085643.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210207085641792</span></p>
+<h4 id="2-函数定义时有两种方法约束参数和返回值类型："><a href="#2-函数定义时有两种方法约束参数和返回值类型：" class="headerlink" title="2. 函数定义时有两种方法约束参数和返回值类型："></a>2. 函数定义时有两种方法约束参数和返回值类型：</h4><p>第一种是约束参数和返回值；这种写法返回值类型number可省略不写，编辑器可直接推断出类型；</p>
 <p>第二种是直接约束函数的方式：这种写法返回值类型number不能省略，因为省略结构就不对了；</p>
 <p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210205093803.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210205093800508</span></p>
-<h3 id="4-接口interface-与-类型别名type的区别"><a href="#4-接口interface-与-类型别名type的区别" class="headerlink" title="4. 接口interface  与 类型别名type的区别"></a>4. 接口interface  与 类型别名type的区别</h3><p>interface和type都可以定义，但interface适用于定义对象或者函数，不能定义简单类型。type什么类型都可以。能用接口定义表示就用接口interface。</p>
+<h4 id="4-接口interface-与-类型别名type的区别"><a href="#4-接口interface-与-类型别名type的区别" class="headerlink" title="4. 接口interface  与 类型别名type的区别"></a>4. 接口interface  与 类型别名type的区别</h4><p>interface和type都可以定义，但interface适用于定义对象或者函数，不能定义简单类型。type什么类型都可以。能用接口定义表示就用接口interface。</p>
 <p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210205094757.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210205094754620</span></p>
-<h3 id="5-注意点：函数传参是字面量对象，会进行强校验；如果是之前定义好对象，再传参，则是弱校验。"><a href="#5-注意点：函数传参是字面量对象，会进行强校验；如果是之前定义好对象，再传参，则是弱校验。" class="headerlink" title="5. 注意点：函数传参是字面量对象，会进行强校验；如果是之前定义好对象，再传参，则是弱校验。"></a>5. 注意点：函数传参是字面量对象，会进行强校验；如果是之前定义好对象，再传参，则是弱校验。</h3><p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210205100526.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210205100525259</span></p>
+<h4 id="5-注意点：函数传参是字面量对象，会进行强校验；如果是之前定义好对象，再传参，则是弱校验。"><a href="#5-注意点：函数传参是字面量对象，会进行强校验；如果是之前定义好对象，再传参，则是弱校验。" class="headerlink" title="5. 注意点：函数传参是字面量对象，会进行强校验；如果是之前定义好对象，再传参，则是弱校验。"></a>5. 注意点：函数传参是字面量对象，会进行强校验；如果是之前定义好对象，再传参，则是弱校验。</h4><p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210205100526.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210205100525259</span></p>
 <p>![image-20210205100037293](/Users/jane/Library/Application Support/typora-user-images/image-20210205100037293.png)</p>
+<h3 id="4-数组"><a href="#4-数组" class="headerlink" title="4. 数组"></a>4. 数组</h3><p>也可以这样写：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">const</span> objectArr: &#123;<span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>, <span class="hljs-attr">age</span>: <span class="hljs-built_in">number</span>&#125;[] = [&#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Jane&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">28</span>&#125;]<br></code></pre></td></tr></table></figure>
+<p>下面方式分别是适用类型别名 、class方式进行定义。区别在于：class适用于对象和new 对象；而type类型别名下面这样的写法，只适用于对象。</p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210207091019.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210207091017833</span></p>
+<h3 id="5-元组-tuple"><a href="#5-元组-tuple" class="headerlink" title="5. 元组 tuple"></a>5. 元组 tuple</h3><p>规定数组内各个元素位置上的类型，下面这种写法无法确定各个值的类型。</p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210207091714.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210207091712605</span></p>
+<p>如下即是适用元组方式来规定各个元素类型的。</p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210207091957.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210207091949251</span></p>
+<h3 id="6-interface接口"><a href="#6-interface接口" class="headerlink" title="6. interface接口"></a>6. interface接口</h3><p>这里的say是方法，函数需返回string类型的值；</p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210207092804.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210207092802810</span></p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210207092907.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210207092905858</span></p>
+<h4 id="2-class类应用接口类型，使用implements。如此class类就需要具备接口Person的这些属性。"><a href="#2-class类应用接口类型，使用implements。如此class类就需要具备接口Person的这些属性。" class="headerlink" title="2. class类应用接口类型，使用implements。如此class类就需要具备接口Person的这些属性。"></a>2. class类应用接口类型，使用implements。如此class类就需要具备接口Person的这些属性。</h4><p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210207093011.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210207093009628</span></p>
+<h4 id="3-接口interface实现继承"><a href="#3-接口interface实现继承" class="headerlink" title="3. 接口interface实现继承"></a>3. 接口interface实现继承</h4><p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210207093419.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210207093418364</span></p>
+<h4 id="4-接口interface定义函数类型"><a href="#4-接口interface定义函数类型" class="headerlink" title="4. 接口interface定义函数类型"></a>4. 接口interface定义函数类型</h4><p>入参是word字符串，返回值为string类型；</p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210207093523.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210207093522731</span></p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210207093734.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210207093628275</span></p>
+<p>编译后会发现，接口interface不会出现在编码代码中，由此可知，它的作用只在开发阶段进行语法提示和校验的功能。</p>
+<h3 id="7-类的访问类型和构造器"><a href="#7-类的访问类型和构造器" class="headerlink" title="7. 类的访问类型和构造器"></a>7. 类的访问类型和构造器</h3><h4 id="1-private、protected、public"><a href="#1-private、protected、public" class="headerlink" title="1. private、protected、public"></a>1. private、protected、public</h4><p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210207095434.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210207095433094</span></p>
+<h4 id="2-constructor构造器"><a href="#2-constructor构造器" class="headerlink" title="2. constructor构造器"></a>2. constructor构造器</h4><p>如下使用public，可以代替public name 定义，以及this.name=name的赋值操作。</p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210207100206.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210207100204935</span></p>
+<p>继承，子类和父类都有constructor构造器，则在子类中需要调用super()。实例化的时候，constructor构造器会被立即执行。</p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210207100533.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210207100531230</span></p>
+<h4 id="3-Getter-setter"><a href="#3-Getter-setter" class="headerlink" title="3. Getter\setter"></a>3. Getter\setter</h4><p>保护私有属性，getter函数，可以通过直接访问就可以。</p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210207102211.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210207102208856</span></p>
+<h4 id="4-static"><a href="#4-static" class="headerlink" title="4. static"></a>4. static</h4><p>使用static静态方法可以把方法挂载到类上面，如此即便实例很多，也只会调用一次函数。</p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210207102444.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210207102443180</span></p>
+<p>实现单例模式</p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210207103347.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210207103346148</span></p>
+<h2 id="四、编译、配置文件"><a href="#四、编译、配置文件" class="headerlink" title="四、编译、配置文件"></a>四、编译、配置文件</h2><ol>
+<li><code>ts-node</code>: 编译执行ts文件；</li>
+<li><code>tsc</code>: ts编译成js 文件；</li>
+</ol>
+<h3 id="1-查看tsconfig-json文件"><a href="#1-查看tsconfig-json文件" class="headerlink" title="1. 查看tsconfig.json文件"></a>1. 查看tsconfig.json文件</h3><h2 id="五、联合类型和类型保护"><a href="#五、联合类型和类型保护" class="headerlink" title="五、联合类型和类型保护"></a>五、联合类型和类型保护</h2><ol>
+<li>｜ 为联合类型，取两类型里都有的属性或者方法；</li>
+</ol>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210208170213.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210208170212030</span></p>
+<p>类型保护有以下几种方法：1.类型断言方法，as即是断言，直接告诉ts是什么类型；</p>
+<ol start="2">
+<li> in语法类型保护。 </li>
+</ol>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210208170243.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210208170242409</span></p>
+<ol start="3">
+<li>Typeof 语法来做类型保护。</li>
+</ol>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210208170701.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210208170650240</span></p>
+<ol start="4">
+<li>instaceof操作符来做类型保护，这时必须使用class类定义，如果是interface定义类，则无法使用instanceof类型保护。</li>
+</ol>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210208170950.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210208170943999</span></p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210208171423.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210208171416657</span></p>
+<h2 id="六、函数泛型"><a href="#六、函数泛型" class="headerlink" title="六、函数泛型"></a>六、函数泛型</h2><h3 id="1-使用尖括号-lt-gt-，泛指各种可能但需要一致的类型。在调用时再指定具体类型。"><a href="#1-使用尖括号-lt-gt-，泛指各种可能但需要一致的类型。在调用时再指定具体类型。" class="headerlink" title="1. 使用尖括号&lt;&gt;，泛指各种可能但需要一致的类型。在调用时再指定具体类型。"></a>1. 使用尖括号&lt;&gt;，泛指各种可能但需要一致的类型。在调用时再指定具体类型。</h3><p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210208175135.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210208175127172</span></p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210208202833.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210208202823833</span></p>
+<h3 id="2-传数组，可以Array-也可以ABC-。"><a href="#2-传数组，可以Array-也可以ABC-。" class="headerlink" title="2. 传数组，可以Array, 也可以ABC[] 。"></a>2. 传数组，可以Array<ABC>, 也可以ABC[] 。</h3><p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210208202921.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210208202913952</span></p>
+<h3 id="3-可定义多个泛型类型。"><a href="#3-可定义多个泛型类型。" class="headerlink" title="3. 可定义多个泛型类型。"></a>3. 可定义多个泛型类型。</h3><p>如此在调用函数时，可任意传类型。</p>
+<p>可以<code>join&lt;number, number&gt;(1,1)</code>;</p>
+<p>也可以<code>join&lt;number, string&gt;(1, &#39;1&#39;)</code>;</p>
+<p>亦可以不写。<code>join(1, &#39;1&#39;);</code>由ts自己类型推断确定。</p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210208203315.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210208203305647</span></p>
+<h3 id="4-函数也返回T类型，是-T-如此表达。但如下图写不正确。"><a href="#4-函数也返回T类型，是-T-如此表达。但如下图写不正确。" class="headerlink" title="4. 函数也返回T类型，是:T, 如此表达。但如下图写不正确。"></a>4. 函数也返回T类型，是:T, 如此表达。但如下图写不正确。</h3><p>因为返回T类型不一定返回字符串。</p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210208203924.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210208203913362</span></p>
+<h2 id="七、类中的泛型以及泛型类型"><a href="#七、类中的泛型以及泛型类型" class="headerlink" title="七、类中的泛型以及泛型类型"></a>七、类中的泛型以及泛型类型</h2><h3 id="1-在class类名后"><a href="#1-在class类名后" class="headerlink" title="1. 在class类名后;"></a>1. 在class类名后<T>;</h3><p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210208205228.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210208205225156</span></p>
+<h3 id="2-如果泛型里必须有某些属性或者方法，这时需要继承。"><a href="#2-如果泛型里必须有某些属性或者方法，这时需要继承。" class="headerlink" title="2. 如果泛型里必须有某些属性或者方法，这时需要继承。"></a>2. 如果泛型里必须有某些属性或者方法，这时需要继承。</h3><p>但这里getItem的返回类型不能是T，因为return的是name，是string类型，所以这里的返回类型是确定String，而不是T。</p>
+<p>T 泛型继承于Item类型，必须有name属性。</p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210208205740.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210208205737832</span></p>
+<p>getItem如此写就对了。</p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210208205931.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210208205930236</span></p>
+<h3 id="3-T泛型只能只能选择指定的几种类型，不能随意类型，需要如下做。"><a href="#3-T泛型只能只能选择指定的几种类型，不能随意类型，需要如下做。" class="headerlink" title="3. T泛型只能只能选择指定的几种类型，不能随意类型，需要如下做。"></a>3. T泛型只能只能选择指定的几种类型，不能随意类型，需要如下做。</h3><p>将泛型T继承于 多个联合类型。</p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210208210602.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210208210559886</span></p>
+<p>如下指定类型调用是不行的。因为泛型只能是number或者string，这里就不能指定成Test类型了。</p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210208210747.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210208210745633</span></p>
+<p>如此写成number或者string就没问题了。</p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210208210937.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210208210933256</span></p>
+<h3 id="4-使用泛型作为一个具体的类型注解。"><a href="#4-使用泛型作为一个具体的类型注解。" class="headerlink" title="4. 使用泛型作为一个具体的类型注解。"></a>4. 使用泛型作为一个具体的类型注解。</h3><p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210208211310.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210208211307504</span></p>
 
       </section>
       <section class="extra">
@@ -238,7 +315,7 @@
 
         
   <nav class="nav">
-    <a></a>
+    <a href="/trylang-blog/2021/02/10/notes/%E5%88%9D%E8%AF%86egg.js%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/"><i class="iconfont iconleft"></i>初识egg.js遇到的坑</a>
     <a href="/trylang-blog/2021/01/23/hongbaoshu/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8/">红宝书笔记（四）：迭代器与生成器<i class="iconfont iconright"></i></a>
   </nav>
 
@@ -252,7 +329,7 @@
           
   <aside class="toc-wrap">
     <h3 class="toc-title">文章目录：</h3>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TypeScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="toc-text">TypeScript学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%AE%9A%E4%B9%89"><span class="toc-text">一、定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BC%98%E5%8A%BF"><span class="toc-text">二、优势</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E8%AF%AD%E4%B9%89%E6%9B%B4%E6%B8%85%E6%99%B0%E6%98%93%E6%87%82%EF%BC%9B"><span class="toc-text">3. 代码语义更清晰易懂；</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%B1%BB%E5%9E%8B"><span class="toc-text">三、类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%BA%E7%A1%80%E5%AE%9A%E4%B9%89"><span class="toc-text">1. 基础定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E7%9A%84%E6%B3%A8%E8%A7%A3"><span class="toc-text">2. 解构赋值的注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89%E6%97%B6%E6%9C%89%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95%E7%BA%A6%E6%9D%9F%E5%8F%82%E6%95%B0%E5%92%8C%E8%BF%94%E5%9B%9E%E5%80%BC%E7%B1%BB%E5%9E%8B%EF%BC%9A"><span class="toc-text">3. 函数定义时有两种方法约束参数和返回值类型：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%8E%A5%E5%8F%A3interface-%E4%B8%8E-%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8Dtype%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">4. 接口interface  与 类型别名type的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%B3%A8%E6%84%8F%E7%82%B9%EF%BC%9A%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E6%98%AF%E5%AD%97%E9%9D%A2%E9%87%8F%E5%AF%B9%E8%B1%A1%EF%BC%8C%E4%BC%9A%E8%BF%9B%E8%A1%8C%E5%BC%BA%E6%A0%A1%E9%AA%8C%EF%BC%9B%E5%A6%82%E6%9E%9C%E6%98%AF%E4%B9%8B%E5%89%8D%E5%AE%9A%E4%B9%89%E5%A5%BD%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%86%8D%E4%BC%A0%E5%8F%82%EF%BC%8C%E5%88%99%E6%98%AF%E5%BC%B1%E6%A0%A1%E9%AA%8C%E3%80%82"><span class="toc-text">5. 注意点：函数传参是字面量对象，会进行强校验；如果是之前定义好对象，再传参，则是弱校验。</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TypeScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="toc-text">TypeScript学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%AE%9A%E4%B9%89"><span class="toc-text">一、定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BC%98%E5%8A%BF"><span class="toc-text">二、优势</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E8%AF%AD%E4%B9%89%E6%9B%B4%E6%B8%85%E6%99%B0%E6%98%93%E6%87%82%EF%BC%9B"><span class="toc-text">3. 代码语义更清晰易懂；</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%B1%BB%E5%9E%8B"><span class="toc-text">三、类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%BA%E7%A1%80%E5%AE%9A%E4%B9%89"><span class="toc-text">1. 基础定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%A6%82%E6%9E%9C%E5%86%99%E4%B8%80%E8%A1%8C%EF%BC%8C%E5%8F%AF%E9%BB%98%E8%AE%A4%E7%B1%BB%E5%9E%8B%EF%BC%8C%E4%BD%86%E5%A6%82%E6%9E%9C%E5%88%86%E8%A1%8C%E5%86%99%EF%BC%8C%E5%88%99%E9%9C%80%E8%A6%81%E8%BF%9B%E8%A1%8C%E7%B1%BB%E5%9E%8B%E5%A3%B0%E6%98%8E%E3%80%82"><span class="toc-text">3. 如果写一行，可默认类型，但如果分行写，则需要进行类型声明。 image-20210207090445347</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E7%9A%84%E6%B3%A8%E8%A7%A3"><span class="toc-text">2. 解构赋值的注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%87%BD%E6%95%B0%E7%9B%B8%E5%85%B3%E7%B1%BB%E5%9E%8B"><span class="toc-text">3. 函数相关类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%95%B0%E7%BB%84"><span class="toc-text">4. 数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%85%83%E7%BB%84-tuple"><span class="toc-text">5. 元组 tuple</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-interface%E6%8E%A5%E5%8F%A3"><span class="toc-text">6. interface接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E7%B1%BB%E7%9A%84%E8%AE%BF%E9%97%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">7. 类的访问类型和构造器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%BC%96%E8%AF%91%E3%80%81%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">四、编译、配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9F%A5%E7%9C%8Btsconfig-json%E6%96%87%E4%BB%B6"><span class="toc-text">1. 查看tsconfig.json文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E8%81%94%E5%90%88%E7%B1%BB%E5%9E%8B%E5%92%8C%E7%B1%BB%E5%9E%8B%E4%BF%9D%E6%8A%A4"><span class="toc-text">五、联合类型和类型保护</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%87%BD%E6%95%B0%E6%B3%9B%E5%9E%8B"><span class="toc-text">六、函数泛型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8%E5%B0%96%E6%8B%AC%E5%8F%B7-lt-gt-%EF%BC%8C%E6%B3%9B%E6%8C%87%E5%90%84%E7%A7%8D%E5%8F%AF%E8%83%BD%E4%BD%86%E9%9C%80%E8%A6%81%E4%B8%80%E8%87%B4%E7%9A%84%E7%B1%BB%E5%9E%8B%E3%80%82%E5%9C%A8%E8%B0%83%E7%94%A8%E6%97%B6%E5%86%8D%E6%8C%87%E5%AE%9A%E5%85%B7%E4%BD%93%E7%B1%BB%E5%9E%8B%E3%80%82"><span class="toc-text">1. 使用尖括号&lt;&gt;，泛指各种可能但需要一致的类型。在调用时再指定具体类型。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BC%A0%E6%95%B0%E7%BB%84%EF%BC%8C%E5%8F%AF%E4%BB%A5Array-%E4%B9%9F%E5%8F%AF%E4%BB%A5ABC-%E3%80%82"><span class="toc-text">2. 传数组，可以Array, 也可以ABC[] 。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%8F%AF%E5%AE%9A%E4%B9%89%E5%A4%9A%E4%B8%AA%E6%B3%9B%E5%9E%8B%E7%B1%BB%E5%9E%8B%E3%80%82"><span class="toc-text">3. 可定义多个泛型类型。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%87%BD%E6%95%B0%E4%B9%9F%E8%BF%94%E5%9B%9ET%E7%B1%BB%E5%9E%8B%EF%BC%8C%E6%98%AF-T-%E5%A6%82%E6%AD%A4%E8%A1%A8%E8%BE%BE%E3%80%82%E4%BD%86%E5%A6%82%E4%B8%8B%E5%9B%BE%E5%86%99%E4%B8%8D%E6%AD%A3%E7%A1%AE%E3%80%82"><span class="toc-text">4. 函数也返回T类型，是:T, 如此表达。但如下图写不正确。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B%E4%BB%A5%E5%8F%8A%E6%B3%9B%E5%9E%8B%E7%B1%BB%E5%9E%8B"><span class="toc-text">七、类中的泛型以及泛型类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9C%A8class%E7%B1%BB%E5%90%8D%E5%90%8E"><span class="toc-text">1. 在class类名后;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A6%82%E6%9E%9C%E6%B3%9B%E5%9E%8B%E9%87%8C%E5%BF%85%E9%A1%BB%E6%9C%89%E6%9F%90%E4%BA%9B%E5%B1%9E%E6%80%A7%E6%88%96%E8%80%85%E6%96%B9%E6%B3%95%EF%BC%8C%E8%BF%99%E6%97%B6%E9%9C%80%E8%A6%81%E7%BB%A7%E6%89%BF%E3%80%82"><span class="toc-text">2. 如果泛型里必须有某些属性或者方法，这时需要继承。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-T%E6%B3%9B%E5%9E%8B%E5%8F%AA%E8%83%BD%E5%8F%AA%E8%83%BD%E9%80%89%E6%8B%A9%E6%8C%87%E5%AE%9A%E7%9A%84%E5%87%A0%E7%A7%8D%E7%B1%BB%E5%9E%8B%EF%BC%8C%E4%B8%8D%E8%83%BD%E9%9A%8F%E6%84%8F%E7%B1%BB%E5%9E%8B%EF%BC%8C%E9%9C%80%E8%A6%81%E5%A6%82%E4%B8%8B%E5%81%9A%E3%80%82"><span class="toc-text">3. T泛型只能只能选择指定的几种类型，不能随意类型，需要如下做。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B%E4%BD%9C%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%85%B7%E4%BD%93%E7%9A%84%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3%E3%80%82"><span class="toc-text">4. 使用泛型作为一个具体的类型注解。</span></a></li></ol></li></ol></li></ol>
   </aside>
 
         
