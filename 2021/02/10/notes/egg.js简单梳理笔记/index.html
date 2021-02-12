@@ -6,12 +6,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>初识egg.js遇到的坑 - Try-Lang</title>
+  <title>egg.js简单梳理笔记 - Try-Lang</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
   
-  <meta name="description" content="初识egg.js遇到的坑1. Failed to co...">
+  <meta name="description" content="egg.js简单梳理笔记一、目录结构详见目录结构
+
+二...">
   <meta name="author" content="Jane">
   <link rel="icon" href="/trylang-blog/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="icon" href="/trylang-blog/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -135,7 +137,7 @@
         <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
       
     </div>
-    <div class="center">初识egg.js遇到的坑</div>
+    <div class="center">egg.js简单梳理笔记</div>
     <div class="right">
       <i class="iconfont iconmenu j-navbar-menu"></i>
     </div>
@@ -176,44 +178,42 @@
       <div class="col-xl-6"><article class="article">
   <div class="wrap">
     <section class="head">
-  <img   class="lazyload" data-original="https://ixibanyayu.com/wp-content/uploads/2018/08/meiguomeiren-fanti.jpg" src="/trylang-blog/images/theme/empty.jpg"  draggable="false">
+  <img   class="lazyload" data-original="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1823359946,768790392&fm=11&gp=0.jpg" src="/trylang-blog/images/theme/empty.jpg"  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title">初识egg.js遇到的坑</h1>
+    <h1 class="head-title">egg.js简单梳理笔记</h1>
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>February 10, 2021</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1045</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1460</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <h1 id="初识egg-js遇到的坑"><a href="#初识egg-js遇到的坑" class="headerlink" title="初识egg.js遇到的坑"></a>初识egg.js遇到的坑</h1><h2 id="1-Failed-to-connect-to-localhost-port-8080-Connection-refused"><a href="#1-Failed-to-connect-to-localhost-port-8080-Connection-refused" class="headerlink" title="1. Failed to connect to localhost port 8080: Connection refused"></a>1. Failed to connect to localhost port 8080: Connection refused</h2><p>使用命令<code>curl http://localhost:7001</code> 会报Connection refused。</p>
-<p>这时使用 <code>curl http://127.0.0.1:7001</code>，就没有问题了。</p>
-<blockquote>
-<p>资料参考：</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/duhuo/p/5695256.html">Linux curl命令详解</a></p>
-</blockquote>
+        <h1 id="egg-js简单梳理笔记"><a href="#egg-js简单梳理笔记" class="headerlink" title="egg.js简单梳理笔记"></a>egg.js简单梳理笔记</h1><h2 id="一、目录结构"><a href="#一、目录结构" class="headerlink" title="一、目录结构"></a>一、目录结构</h2><p>详见<a target="_blank" rel="noopener" href="https://eggjs.org/zh-cn/basics/structure.html">目录结构</a></p>
 <hr>
-<h2 id="2-Connect-timeout-for-5000ms-GET-https-hacker-news-firebaseio-com-v0-topstories-json-2"><a href="#2-Connect-timeout-for-5000ms-GET-https-hacker-news-firebaseio-com-v0-topstories-json-2" class="headerlink" title="2.  Connect timeout for 5000ms, GET https://hacker-news.firebaseio.com/v0/topstories.json -2"></a>2.  Connect timeout for 5000ms, GET <a target="_blank" rel="noopener" href="https://hacker-news.firebaseio.com/v0/topstories.json">https://hacker-news.firebaseio.com/v0/topstories.json</a> -2</h2><p>Egg.js例子里有些链接，浏览器是可以打开的，但是直接在egg.js中使用<code>await this.ctx.curl(url,&#123;&#125;)</code>时会报超时。</p>
-<p>自己没有找到特别好的办法，只是换了一个都能访问的请求数据地址，替换成这个地址就不报超时的错误了。</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://api.stackexchange.com/2.2/search?order=desc&amp;sort=activity&amp;intitle=perl&amp;site=stackoverflow">可访问地址</a></p>
-</blockquote>
-<hr>
-<h2 id="3-报错“nodejs-RequestError-getaddrinfo-ENOTFOUND”"><a href="#3-报错“nodejs-RequestError-getaddrinfo-ENOTFOUND”" class="headerlink" title="3. 报错“nodejs.RequestError: getaddrinfo ENOTFOUND”"></a>3. 报错“nodejs.RequestError: getaddrinfo ENOTFOUND”</h2><p>或者“agent status: {“createSocketCount”:1,”createSocketErrorCount”:0,”closeSocketCount”:1,”errorSocketCount”:0,”timeoutSocketCount”:0,”requestCount”:0,”freeSockets”:{},”sockets”:{},”requests”:{}}, socketHandledRequests: 1, socketHandledResponses: 0)” </p>
-<p>这时要检查下代码是否有问题，我当时就是把配置文档写错了。</p>
-<p>当时按照egg.js文档中，是这样写的，结果会报上述错误。<img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210210104400.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210210104350165</span></p>
-<p>在config/plugin.js 文件中，应该要如此引入模版，不会报错。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">module</span>.exports = &#123;<br>  nunjucks: &#123;<br>    enable: <span class="hljs-literal">true</span>,<br>    package: <span class="hljs-string">&#x27;egg-view-nunjucks&#x27;</span>,<br>  &#125;,<br>  <span class="hljs-comment">// had enabled by egg</span><br>  <span class="hljs-comment">// static: &#123;</span><br>  <span class="hljs-comment">//   enable: true,</span><br>  <span class="hljs-comment">// &#125;</span><br>&#125;;<br></code></pre></td></tr></table></figure>
-
+<h2 id="二、内置对象"><a href="#二、内置对象" class="headerlink" title="二、内置对象"></a>二、内置对象</h2><p>详见<a target="_blank" rel="noopener" href="https://eggjs.org/zh-cn/basics/objects.html">框架内置基础对象</a></p>
+<p>框架中内置的一些基础对象，包括从 <a target="_blank" rel="noopener" href="http://koajs.com/">Koa</a> 继承而来的 4 个对象（Application, Context, Request, Response) 以及框架扩展的一些对象（Controller, Service, Helper, Config, Logger）。</p>
+<h3 id="1-Application"><a href="#1-Application" class="headerlink" title="1. Application"></a>1. Application</h3><p>Application 是全局应用对象，在一个应用中，只会实例化一个，继承自<a target="_blank" rel="noopener" href="http://koajs.com/#application">Koa.Application</a>。和 <a target="_blank" rel="noopener" href="http://koajs.com/">Koa</a> 一样，在 Context 对象上，可以通过 <code>ctx.app</code> 访问到 Application 对象。</p>
+<h3 id="2-Context"><a href="#2-Context" class="headerlink" title="2. Context"></a>2. Context</h3><p>Context 是一个<strong>请求级别的对象</strong>，继承自 <a target="_blank" rel="noopener" href="http://koajs.com/#context">Koa.Context</a>。在每一次收到用户请求时，框架会实例化一个 Context 对象，这个对象封装了这次用户请求的信息，并提供了许多便捷的方法来获取请求参数或者设置响应信息。框架会将所有的 <a target="_blank" rel="noopener" href="https://eggjs.org/zh-cn/basics/service.html">Service</a> 挂载到 Context 实例上，一些插件也会将一些其他的方法和对象挂载到它上面（<a target="_blank" rel="noopener" href="https://github.com/eggjs/egg-sequelize">egg-sequelize</a> 会将所有的 model 挂载在 Context 上）。</p>
+<h4 id="获取方式"><a href="#获取方式" class="headerlink" title="获取方式"></a>获取方式</h4><p>最常见的 Context 实例获取方式是在 <a target="_blank" rel="noopener" href="https://eggjs.org/zh-cn/basics/middleware.html">Middleware</a>, <a target="_blank" rel="noopener" href="https://eggjs.org/zh-cn/basics/controller.html">Controller</a> 以及 <a target="_blank" rel="noopener" href="https://eggjs.org/zh-cn/basics/service.html">Service</a> 中。Controller 中的获取方式在上面的例子中已经展示过了，在 Service 中获取和 Controller 中获取的方式一样，在 Middleware 中获取 Context 实例则和 <a target="_blank" rel="noopener" href="http://koajs.com/">Koa</a> 框架在中间件中获取 Context 对象的方式一致。</p>
+<h3 id="3-Request-amp-Response"><a href="#3-Request-amp-Response" class="headerlink" title="3. Request &amp; Response"></a>3. Request &amp; Response</h3><p>Request 是一个<strong>请求级别的对象</strong>，继承自 <a target="_blank" rel="noopener" href="http://koajs.com/#request">Koa.Request</a>。封装了 Node.js 原生的 HTTP Request 对象，提供了一系列辅助方法获取 HTTP 请求常用参数。</p>
+<p>Response 是一个<strong>请求级别的对象</strong>，继承自 <a target="_blank" rel="noopener" href="http://koajs.com/#response">Koa.Response</a>。封装了 Node.js 原生的 HTTP Response 对象，提供了一系列辅助方法设置 HTTP 响应。</p>
+<h4 id="获取方式-1"><a href="#获取方式-1" class="headerlink" title="获取方式"></a>获取方式</h4><p>可以在 Context 的实例上获取到当前请求的 Request(<code>ctx.request</code>) 和 Response(<code>ctx.response</code>) 实例。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// app/controller/user.js</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Controller</span> </span>&#123;<br>  <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-title">fetch</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">const</span> &#123; app, ctx &#125; = <span class="hljs-built_in">this</span>;<br>    <span class="hljs-keyword">const</span> id = ctx.request.query.id;<br>    ctx.response.body = app.cache.get(id);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://koajs.com/">Koa</a> 会在 Context 上代理一部分 Request 和 Response 上的方法和属性，参见 <a target="_blank" rel="noopener" href="http://koajs.com/#context">Koa.Context</a>。</li>
+<li>如上面例子中的 <code>ctx.request.query.id</code> 和 <code>ctx.query.id</code> 是等价的，<code>ctx.response.body=</code> 和 <code>ctx.body=</code> 是等价的。</li>
+<li>需要注意的是，获取 POST 的 body 应该使用 <code>ctx.request.body</code>，而不是 <code>ctx.body</code>。</li>
+</ul>
+<h3 id="4-待续。。。"><a href="#4-待续。。。" class="headerlink" title="4. 待续。。。"></a>4. 待续。。。</h3><h3 id="三、插件"><a href="#三、插件" class="headerlink" title="三、插件"></a>三、插件</h3><h4 id="1-校验参数"><a href="#1-校验参数" class="headerlink" title="1. 校验参数"></a>1. 校验参数</h4>
       </section>
       <section class="extra">
         
           <ul class="copyright">
   
     <li><strong>本文作者：</strong>Jane</li>
-    <li><strong>本文链接：</strong><a href="http://trylang.github.io/trylang-blog/2021/02/10/notes/%E5%88%9D%E8%AF%86egg.js%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/index.html" title="http:&#x2F;&#x2F;trylang.github.io&#x2F;trylang-blog&#x2F;2021&#x2F;02&#x2F;10&#x2F;notes&#x2F;%E5%88%9D%E8%AF%86egg.js%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91&#x2F;index.html">http:&#x2F;&#x2F;trylang.github.io&#x2F;trylang-blog&#x2F;2021&#x2F;02&#x2F;10&#x2F;notes&#x2F;%E5%88%9D%E8%AF%86egg.js%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91&#x2F;index.html</a></li>
+    <li><strong>本文链接：</strong><a href="http://trylang.github.io/trylang-blog/2021/02/10/notes/egg.js%E7%AE%80%E5%8D%95%E6%A2%B3%E7%90%86%E7%AC%94%E8%AE%B0/index.html" title="http:&#x2F;&#x2F;trylang.github.io&#x2F;trylang-blog&#x2F;2021&#x2F;02&#x2F;10&#x2F;notes&#x2F;egg.js%E7%AE%80%E5%8D%95%E6%A2%B3%E7%90%86%E7%AC%94%E8%AE%B0&#x2F;index.html">http:&#x2F;&#x2F;trylang.github.io&#x2F;trylang-blog&#x2F;2021&#x2F;02&#x2F;10&#x2F;notes&#x2F;egg.js%E7%AE%80%E5%8D%95%E6%A2%B3%E7%90%86%E7%AC%94%E8%AE%B0&#x2F;index.html</a></li>
     <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
   
 </ul>
@@ -234,8 +234,8 @@
 
         
   <nav class="nav">
-    <a href="/trylang-blog/2021/02/10/notes/egg.js%E7%AE%80%E5%8D%95%E6%A2%B3%E7%90%86%E7%AC%94%E8%AE%B0/"><i class="iconfont iconleft"></i>egg.js简单梳理笔记</a>
-    <a href="/trylang-blog/2021/02/05/front/TypeScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">TypeScript：学习笔记<i class="iconfont iconright"></i></a>
+    <a href="/trylang-blog/2021/02/12/notes/mac%E4%B8%ADmysql%E5%AE%89%E8%A3%85/"><i class="iconfont iconleft"></i>mac中mysql安装</a>
+    <a href="/trylang-blog/2021/02/10/notes/%E5%88%9D%E8%AF%86egg.js%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/">初识egg.js遇到的坑<i class="iconfont iconright"></i></a>
   </nav>
 
       </section>
@@ -248,7 +248,7 @@
           
   <aside class="toc-wrap">
     <h3 class="toc-title">文章目录：</h3>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9D%E8%AF%86egg-js%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91"><span class="toc-text">初识egg.js遇到的坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Failed-to-connect-to-localhost-port-8080-Connection-refused"><span class="toc-text">1. Failed to connect to localhost port 8080: Connection refused</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Connect-timeout-for-5000ms-GET-https-hacker-news-firebaseio-com-v0-topstories-json-2"><span class="toc-text">2.  Connect timeout for 5000ms, GET https:&#x2F;&#x2F;hacker-news.firebaseio.com&#x2F;v0&#x2F;topstories.json -2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%8A%A5%E9%94%99%E2%80%9Cnodejs-RequestError-getaddrinfo-ENOTFOUND%E2%80%9D"><span class="toc-text">3. 报错“nodejs.RequestError: getaddrinfo ENOTFOUND”</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#egg-js%E7%AE%80%E5%8D%95%E6%A2%B3%E7%90%86%E7%AC%94%E8%AE%B0"><span class="toc-text">egg.js简单梳理笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-text">一、目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-text">二、内置对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Application"><span class="toc-text">1. Application</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Context"><span class="toc-text">2. Context</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Request-amp-Response"><span class="toc-text">3. Request &amp; Response</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%BE%85%E7%BB%AD%E3%80%82%E3%80%82%E3%80%82"><span class="toc-text">4. 待续。。。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%8F%92%E4%BB%B6"><span class="toc-text">三、插件</span></a></li></ol></li></ol></li></ol>
   </aside>
 
         
