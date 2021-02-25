@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>mac中mysql安装和学习笔记 - Try-Lang</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="mac中mysql安装和学习笔记安装链接1. MySQ...">
+  <meta name="author" content="Jane">
+  <link rel="icon" href="/trylang-blog/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/trylang-blog/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/trylang-blog/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/trylang-blog/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/trylang-blog/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/trylang-blog/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_s6x2xcokxrl.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading2.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210119143031.png',
+        wechat: ''
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '/trylang-blog/images/theme/welcome-image.jpg',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        model: 'simple'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+    </div>
+    <div class="center">mac中mysql安装和学习笔记</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+
+<nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/trylang-blog/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/trylang-blog/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/trylang-blog/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/trylang-blog/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/trylang-blog/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/trylang-blog/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="https://www.diyimei.net/upload/2019/1568389275943424.jpg" src="/trylang-blog/images/theme/empty.jpg"  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">mac中mysql安装和学习笔记</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>February 12, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>737</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h1 id="mac中mysql安装和学习笔记"><a href="#mac中mysql安装和学习笔记" class="headerlink" title="mac中mysql安装和学习笔记"></a>mac中mysql安装和学习笔记</h1><h2 id="安装链接"><a href="#安装链接" class="headerlink" title="安装链接"></a>安装链接</h2><h3 id="1-MySQL安装（Mac版）"><a href="#1-MySQL安装（Mac版）" class="headerlink" title="1. MySQL安装（Mac版）"></a>1. <a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903831298375693">MySQL安装（Mac版）</a></h3><p><a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/">MySQL Community (GPL) Downloads »</a></p>
+<h3 id="2-安装Mysql可视化工具，"><a href="#2-安装Mysql可视化工具，" class="headerlink" title="2. 安装Mysql可视化工具，"></a>2. 安装Mysql可视化工具，</h3><p><a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/workbench/">MySQL Workbench</a></p>
+<h2 id="报错解决方案"><a href="#报错解决方案" class="headerlink" title="报错解决方案"></a>报错解决方案</h2><h3 id="1-Mac-OS-zsh-command-not-found-mysql解决方案"><a href="#1-Mac-OS-zsh-command-not-found-mysql解决方案" class="headerlink" title="1. Mac OS zsh: command not found: mysql解决方案"></a>1. <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000020656076">Mac OS zsh: command not found: mysql解决方案</a></h3><h3 id="2-报错：Access-denied-for-user-‘xxx’-’localhost’"><a href="#2-报错：Access-denied-for-user-‘xxx’-’localhost’" class="headerlink" title="2. 报错：Access denied for user ‘xxx’@’localhost’"></a>2. <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000012655875">报错：Access denied for user ‘xxx’@’localhost’</a></h3><p>一个是看mysql是否连接；另一个就是看配置项是否写正确。</p>
+<blockquote>
+<p>自己写项目时，就是将配置项复制错了，在eggjs项目中config.default.js文件中，设置简单版的是config.mysql，复杂版的是config.sequelize，当时自己就是config.sequelize错写成了config.mysql导致这个错误发生。</p>
+</blockquote>
+<h3 id="3-Mac-Navicat-出现-2003-Can’t-connect-to-MySQL-server-on-‘127-0-0-1’-61-“Connection-refused”"><a href="#3-Mac-Navicat-出现-2003-Can’t-connect-to-MySQL-server-on-‘127-0-0-1’-61-“Connection-refused”" class="headerlink" title="3. Mac Navicat 出现 2003 - Can’t connect to MySQL server on ‘127.0.0.1’ (61 “Connection refused”)"></a>3. <a target="_blank" rel="noopener" href="https://blog.csdn.net/Code_Nice/article/details/81121565">Mac Navicat 出现 2003 - Can’t connect to MySQL server on ‘127.0.0.1’ (61 “Connection refused”)</a></h3><p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210214001352.jpeg" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">img</span></p>
+<h3 id="4-Mac使用Navicat连接mysql时报1045-–-Access-denied-for-user-‘root’-’localhost’-using-password-YES-错误"><a href="#4-Mac使用Navicat连接mysql时报1045-–-Access-denied-for-user-‘root’-’localhost’-using-password-YES-错误" class="headerlink" title="4. Mac使用Navicat连接mysql时报1045 – Access denied for user ‘root’@’localhost’ (using password: YES)错误"></a>4. <a target="_blank" rel="noopener" href="https://www.codenong.com/cs105167619/">Mac使用Navicat连接mysql时报1045 – Access denied for user ‘root’@’localhost’ (using password: YES)错误</a></h3><h2 id="学习笔记"><a href="#学习笔记" class="headerlink" title="学习笔记"></a>学习笔记</h2><h3 id="1-进入mysql；"><a href="#1-进入mysql；" class="headerlink" title="1. 进入mysql；"></a>1. 进入mysql；</h3><p><code>mysql -u root -p</code></p>
+<h3 id="2-显示mysql数据库；"><a href="#2-显示mysql数据库；" class="headerlink" title="2. 显示mysql数据库；"></a>2. 显示mysql数据库；</h3><p><code>show databases;</code></p>
+<h3 id="3-创建数据库；"><a href="#3-创建数据库；" class="headerlink" title="3. 创建数据库；"></a>3. 创建数据库；</h3><p><code>create database egg;</code></p>
+<h3 id="4-数据库和表的增删改查操作"><a href="#4-数据库和表的增删改查操作" class="headerlink" title="4. 数据库和表的增删改查操作"></a>4. 数据库和表的增删改查操作</h3><p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210212212509.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">企业微信截图_8d8899b1-c1f9-4037-b05e-ab3c6bb2cde1</span></p>
+<p><img    class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210212215546.png" src="/trylang-blog/images/theme/empty.jpg"   ><span class="image-caption">image-20210212215521515</span></p>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Jane</li>
+    <li><strong>本文链接：</strong><a href="http://trylang.github.io/trylang-blog/2021/02/12/notes/mac%E4%B8%ADmysql%E5%AE%89%E8%A3%85%E5%92%8C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html" title="http:&#x2F;&#x2F;trylang.github.io&#x2F;trylang-blog&#x2F;2021&#x2F;02&#x2F;12&#x2F;notes&#x2F;mac%E4%B8%ADmysql%E5%AE%89%E8%A3%85%E5%92%8C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0&#x2F;index.html">http:&#x2F;&#x2F;trylang.github.io&#x2F;trylang-blog&#x2F;2021&#x2F;02&#x2F;12&#x2F;notes&#x2F;mac%E4%B8%ADmysql%E5%AE%89%E8%A3%85%E5%92%8C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210119143031.png" src="/trylang-blog/images/theme/empty.jpg" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/trylang-blog/tags/mysql/" rel="tag">mysql</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/trylang-blog/2021/02/25/http/%E5%85%B3%E4%BA%8EHTTP%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/"><i class="iconfont iconleft"></i>HTTP Cookie</a>
+    <a href="/trylang-blog/2021/02/10/notes/egg.js%E7%AE%80%E5%8D%95%E6%A2%B3%E7%90%86%E7%AC%94%E8%AE%B0/">egg.js简单梳理笔记<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mac%E4%B8%ADmysql%E5%AE%89%E8%A3%85%E5%92%8C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="toc-text">mac中mysql安装和学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E9%93%BE%E6%8E%A5"><span class="toc-text">安装链接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-MySQL%E5%AE%89%E8%A3%85%EF%BC%88Mac%E7%89%88%EF%BC%89"><span class="toc-text">1. MySQL安装（Mac版）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85Mysql%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7%EF%BC%8C"><span class="toc-text">2. 安装Mysql可视化工具，</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">报错解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Mac-OS-zsh-command-not-found-mysql%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">1. Mac OS zsh: command not found: mysql解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8A%A5%E9%94%99%EF%BC%9AAccess-denied-for-user-%E2%80%98xxx%E2%80%99-%E2%80%99localhost%E2%80%99"><span class="toc-text">2. 报错：Access denied for user ‘xxx’@’localhost’</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Mac-Navicat-%E5%87%BA%E7%8E%B0-2003-Can%E2%80%99t-connect-to-MySQL-server-on-%E2%80%98127-0-0-1%E2%80%99-61-%E2%80%9CConnection-refused%E2%80%9D"><span class="toc-text">3. Mac Navicat 出现 2003 - Can’t connect to MySQL server on ‘127.0.0.1’ (61 “Connection refused”)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Mac%E4%BD%BF%E7%94%A8Navicat%E8%BF%9E%E6%8E%A5mysql%E6%97%B6%E6%8A%A51045-%E2%80%93-Access-denied-for-user-%E2%80%98root%E2%80%99-%E2%80%99localhost%E2%80%99-using-password-YES-%E9%94%99%E8%AF%AF"><span class="toc-text">4. Mac使用Navicat连接mysql时报1045 – Access denied for user ‘root’@’localhost’ (using password: YES)错误</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="toc-text">学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%BF%9B%E5%85%A5mysql%EF%BC%9B"><span class="toc-text">1. 进入mysql；</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%98%BE%E7%A4%BAmysql%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9B"><span class="toc-text">2. 显示mysql数据库；</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9B"><span class="toc-text">3. 创建数据库；</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E8%A1%A8%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C"><span class="toc-text">4. 数据库和表的增删改查操作</span></a></li></ol></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=1594622915 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://github.com/trylang/trylang-blog "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:trylangyp@gmail.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    <div class="scrollbar j-scrollbar">
+  <div class="scrollbar-current j-scrollbar-current"></div>
+</div>
+  
+  
+    
+<script src="/trylang-blog/js/color-mode.js"></script>
+
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/trylang-blog/js/utils.js"></script>
+<script src="/trylang-blog/js/script.js"></script>
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

