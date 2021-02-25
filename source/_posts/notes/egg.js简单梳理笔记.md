@@ -66,3 +66,17 @@ class UserController extends Controller {
 
 #### 1. 校验参数
 
+`egg-validate`;
+
+### 2. 简单的mySql处理插件
+
+`egg-mysql`;
+
+### 3. 运用于复杂、多表联调的mySql插件
+
+`egg-sequelize`; `musql2`
+
+```powershell
+yarn add egg-sequelize mysql2
+```
+

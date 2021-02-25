@@ -19,8 +19,6 @@ categories: 平时笔记
 >
 > [Linux curl命令详解](https://www.cnblogs.com/duhuo/p/5695256.html)
 
-------
-
 ## 2.  Connect timeout for 5000ms, GET https://hacker-news.firebaseio.com/v0/topstories.json -2
 
 Egg.js例子里有些链接，浏览器是可以打开的，但是直接在egg.js中使用`await this.ctx.curl(url,{})`时会报超时。
@@ -54,3 +52,49 @@ module.exports = {
 };
 ```
 
+## 4. 解决Node.js mysql客户端不支持认证协议引发的“ER_NOT_SUPPORTED_AUTH_MODE”问题。
+
+> 参考资料：
+>
+> [解决Node.js mysql客户端不支持认证协议引发的“ER_NOT_SUPPORTED_AUTH_MODE”问题](https://waylau.com/node.js-mysql-client-does-not-support-authentication-protocol/)
+
+### 报错信息
+
+```javascript
+D:\workspaceGithub\nodejs-book-samples\samples\mysql-demo\index.js:17
+      throw error;
+      ^
+
+Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+    at Handshake.Sequence._packetToError (D:\workspaceGithub\nodejs-book-samples\samples\mysql-demo\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Handshake.ErrorPacket (D:\workspaceGithub\nodejs-book-samples\samples\mysql-demo\node_modules\mysql\lib\protocol\sequences\Handshake.js:123:18)
+    at Protocol._parsePacket (D:\workspaceGithub\nodejs-book-samples\samples\mysql-demo\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (D:\workspaceGithub\nodejs-book-samples\samples\mysql-demo\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (D:\workspaceGithub\nodejs-book-samples\samples\mysql-demo\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (D:\workspaceGithub\nodejs-book-samples\samples\mysql-demo\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (D:\workspaceGithub\nodejs-book-samples\samples\mysql-demo\node_modules\mysql\lib\Connection.js:91:28)
+    at Socket.<anonymous> (D:\workspaceGithub\nodejs-book-samples\samples\mysql-demo\node_modules\mysql\lib\Connection.js:525:10)
+    at Socket.emit (events.js:196:13)
+    at addChunk (_stream_readable.js:290:12)
+    --------------------
+```
+
+### 出错原因
+
+导致这个错误的原因是，目前，最新的mysql模块并未完全支持MySQL 8的“caching_sha2_password”加密方式，而“caching_sha2_password”在MySQL 8中是默认的加密方式。因此，下面的方式命令是默认已经使用了“caching_sha2_password”加密方式，该账号、密码无法在mysql模块中使用。
+
+```mysql
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+Query OK, 0 rows affected (0.12 sec)
+```
+
+### 解决方法
+
+解决方法是从新修改用户root的密码，并指定mysql模块能够支持的加密方式：
+
+```mysql
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
+Query OK, 0 rows affected (0.12 sec)
+```
+
+上述语句，显示指定了使用“mysql_native_password”的加密方式。这种方式是在mysql模块能够支持。
