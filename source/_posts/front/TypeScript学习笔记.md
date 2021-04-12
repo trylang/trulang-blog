@@ -208,11 +208,31 @@ https://www.tslang.cn/docs/handbook/functions.html
 
 ![image-20210225100645817](https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210225100647.png)
 
+interface 搭配泛型的应用二：interface入参，定义变量时传参。
 
+![image-20210306100343282](https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210306100352.png)
+
+### 10. 类型别名、字面量、交叉类型
+
+类型别名：type作为类型别名，是一种特别灵活宽泛的概念。本身不是特殊的类型概念。是别的类型的一个别名，像是快捷方式。当使用交叉或者组合类型时，使用类型别名很合适。
+
+interface：是duckTyping的实现方式，是一种独特的类型。实现类或者implements时，适合使用它。
+
+其他情况，两者都可使用，看自己习惯。
+
+![image-20210306105053712](https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210306105056.png)
+
+### 11. 内置类型
+
+![image-20210306111019295](https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210306111022.png)
+
+typescript提供的功能型类型。
+
+![image-20210306111228145](https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210306111230.png)
 
 ![image-20210205092025726](/Users/jane/Library/Application Support/typora-user-images/image-20210205092025726.png)
 
-
+![image-20210306111431221](https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210306111432.png)
 
 ![image-20210205092328935](https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210205092339.png)
 

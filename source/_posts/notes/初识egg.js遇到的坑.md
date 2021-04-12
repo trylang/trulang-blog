@@ -4,7 +4,7 @@ title: 初识egg.js遇到的坑
 date: 2021-02-10 10:14:12
 tags: 
   - egg.js
-categories: 平时笔记  
+categories: 平时笔记 
 ---
 
 # 初识egg.js遇到的坑
