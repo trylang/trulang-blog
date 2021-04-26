@@ -8,6 +8,8 @@ categories: 平时笔记
 
 # mongoDB学习
 
+<img src="https://cdn.jsdelivr.net/gh/trylang/imageManager/picgo/20210419113353.png" alt="image-20210419111639758" style="zoom:50%;" />
+
 ## 一、mac 安装
 
 ### 1. 使用 brew 安装
